@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
-<link rel="stylesheet" href="assets/css/site.css?v=10">
+<link rel="stylesheet" href="assets/css/site.css?v=12">
 </head>
 
 <body class="accent-rose"
@@ -193,7 +193,12 @@
               <input id="g-email" name="email" type="email" required autocomplete="email"
                      placeholder="you@example.com">
             </div>
-            <div class="field field--wide">
+            <div class="field">
+              <label for="g-whatsapp">WhatsApp</label>
+              <input id="g-whatsapp" name="whatsapp" type="tel" required autocomplete="tel"
+                     inputmode="tel" placeholder="+55 11 91234-5678">
+            </div>
+            <div class="field">
               <label for="g-daw"><span lang="en">Which DAW do you use?</span><span lang="pt">Qual DAW você usa?</span></label>
               <select id="g-daw" name="daw" required>
                 <option value="" data-en="Select…" data-pt="Selecione…">Select…</option>
@@ -218,8 +223,10 @@
           <label class="consent">
             <input type="checkbox" name="consent" required>
             <span>
-              <span lang="en">You can email me about the Grid Frequency beta. No newsletter, no third parties.</span>
-              <span lang="pt">Pode me mandar e-mail sobre o beta do Grid Frequency. Sem newsletter, sem terceiros.</span>
+              <span lang="en">You can contact me about the Grid Frequency beta by e-mail or WhatsApp. No newsletter,
+                no third parties, and no adding me to any group.</span>
+              <span lang="pt">Pode me contatar sobre o beta do Grid Frequency por e-mail ou WhatsApp. Sem newsletter, sem
+                terceiros, e sem me adicionar em grupo nenhum.</span>
             </span>
           </label>
 
@@ -686,7 +693,7 @@
   </div>
 </footer>
 
-<script src="assets/js/config.js?v=10"></script>
-<script src="assets/js/site.js?v=10"></script>
+<script src="assets/js/config.js?v=12"></script>
+<script src="assets/js/site.js?v=12"></script>
 </body>
 </html>

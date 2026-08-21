@@ -126,6 +126,7 @@
 
       var payload = {
         name: form.elements.name.value.trim(),
+        whatsapp: form.elements.whatsapp.value.trim(),
         email: form.elements.email.value.trim(),
         daw: form.elements.daw.value,
         plugin: form.getAttribute('data-plugin-label') || plugin

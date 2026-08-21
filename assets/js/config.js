@@ -11,9 +11,13 @@ window.NOWHR = {
   /* ------------------------------------------------------------------ */
   /*  How to fill this in:
    *
-   *  a) Create a Google Form with four short-answer questions, in this order:
-   *       Name · Email · DAW · Plugin
+   *  a) Create a Google Form with five SHORT ANSWER questions:
+   *       Name · WhatsApp · Email · DAW · Plugin
    *     (Responses land in a Google Sheet: Responses → Link to Sheets.)
+   *
+   *     They must be short answer. A Google Form rejects the WHOLE submission
+   *     when one answer does not fit its question, so a multiple-choice
+   *     question here loses the entire contact, not just that column.
    *
    *  b) Open the live form, right-click → View page source, and search for
    *     "entry." — you will find one `entry.NNNNNNNNN` per question.
@@ -28,21 +32,11 @@ window.NOWHR = {
   form: {
     action: 'https://docs.google.com/forms/d/e/1FAIpQLSc0_uIQ9Jjgv6R5qkhdBDBy8FRl2jNwXSXxCM_0TbIymzSGJw/formResponse',
     fields: {
-      name:   'entry.57955336',
-      email:  'entry.1449390413',
-      daw:    'entry.589139950',
-
-      // ⚠ TURN THIS BACK ON once the "plugin" question in the Google Form is a
-      //   SHORT ANSWER question. Right now it is a multiple-choice question
-      //   whose only option is "Opção 1", and a Google Form rejects the ENTIRE
-      //   submission when one answer does not fit its question — so sending
-      //   this field would mean losing every contact, not just this column.
-      //
-      //   Fix: open the form editor → click the "plugin" question → change the
-      //   type from "Múltipla escolha" to "Resposta curta". Then swap the two
-      //   lines below.
-      plugin: ''
-      // plugin: 'entry.19681736'
+      name:     'entry.57955336',
+      whatsapp: 'entry.817370356',
+      email:    'entry.1449390413',
+      daw:      'entry.589139950',
+      plugin:   'entry.19681736'
     }
   },
 

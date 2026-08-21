@@ -461,10 +461,12 @@ figcaption {
 .gate h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); }
 .gate__sub { color: var(--ink-dim); margin-top: 0.75rem; }
 
+/* Four fields want to land as 2×2, not 3+1: the min track is wide enough that
+   a third column never fits inside the gate's column width. */
 .field-grid {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
   margin-top: 1.75rem;
 }
 

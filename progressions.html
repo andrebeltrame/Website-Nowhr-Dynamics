@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
-<link rel="stylesheet" href="assets/css/site.css?v=3">
+<link rel="stylesheet" href="assets/css/site.css?v=4">
 </head>
 
 <body
@@ -62,7 +62,7 @@
       <div class="hero__meta">
         <span class="badge badge--beta"><span lang="en">Open beta</span><span lang="pt">Beta aberto</span></span>
         <span class="badge badge--ver"><span data-version>1.0.0 beta</span></span>
-        <span class="badge badge--ver">VST3 · macOS · Windows</span>
+        <span class="badge badge--ver">VST3 · macOS</span>
       </div>
 
       <h1>Progressions</h1>
@@ -282,37 +282,35 @@
             <h2><span lang="en">You're in</span><span lang="pt">Pronto</span></h2>
           </div>
           <p class="gate__sub">
-            <span lang="en">Progressions <span data-version>1.0.0 beta</span>. Grab the build for your system.
-              There is no installer: the plugin is a <code>.vst3</code> bundle that goes into your system's
+            <span lang="en">Progressions <span data-version>1.0.0 beta</span>, <strong>macOS only</strong> for
+              now. There is no installer: the plugin is a <code>.vst3</code> bundle that goes into your
               <strong>VST3 folder</strong>, and the steps below say exactly where that is.</span>
-            <span lang="pt">Progressions <span data-version>1.0.0 beta</span>. Pegue a versão do seu sistema. Não tem
-              instalador: o plugin é um bundle <code>.vst3</code> que vai na <strong>pasta VST3</strong> do seu
-              sistema, e os passos abaixo dizem exatamente onde ela fica.</span>
+            <span lang="pt">Progressions <span data-version>1.0.0 beta</span>, <strong>só macOS</strong> por
+              enquanto. Não tem instalador: o plugin é um bundle <code>.vst3</code> que vai na
+              <strong>pasta VST3</strong>, e os passos abaixo dizem exatamente onde ela fica.</span>
           </p>
+          <div class="callout">
+            <span lang="en"><strong>This build is Apple Silicon only.</strong> It will not load on an Intel Mac.</span>
+            <span lang="pt"><strong>Esta versão é só para Apple Silicon.</strong> Ela não carrega num Mac Intel.</span>
+          </div>
 
           <div class="dl-grid">
             <a class="dl-tile" data-dl="mac" href="#" download>
               <span class="dl-tile__os">macOS</span>
               <span class="dl-tile__meta"></span>
             </a>
-            <a class="dl-tile" data-dl="win" href="#" download>
-              <span class="dl-tile__os">Windows</span>
-              <span class="dl-tile__meta"></span>
-            </a>
           </div>
 
-          <div class="tabs" role="tablist">
-            <button type="button" role="tab" data-os="mac" aria-controls="inst-mac" aria-selected="true">macOS</button>
-            <button type="button" role="tab" data-os="win" aria-controls="inst-win" aria-selected="false">Windows</button>
-          </div>
 
-          <div class="tabpanel" id="inst-mac" role="tabpanel">
+          <div class="tabpanel" id="inst-mac">
             <ol class="steps">
               <li>
-                <span lang="en">Unzip the download. You get <strong>Progressions.vst3</strong> — that bundle is the plugin,
-                  there is no installer to run.</span>
-                <span lang="pt">Descompacte o download. Você recebe o <strong>Progressions.vst3</strong> — esse bundle é o
-                  plugin, não tem instalador para rodar.</span>
+                <span lang="en">Unzip the download. You get a <code>Nowhr Dynamics</code> folder with
+                  <strong>Progressions.vst3</strong> inside — that bundle is the plugin, there is no installer to
+                  run.</span>
+                <span lang="pt">Descompacte o download. Você recebe uma pasta <code>Nowhr Dynamics</code> com o
+                  <strong>Progressions.vst3</strong> dentro — esse bundle é o plugin, não tem instalador para
+                  rodar.</span>
               </li>
               <li>
                 <span lang="en">Open the VST3 folder: <code>~/Library/Audio/Plug-Ins/VST3/</code>.
@@ -325,58 +323,31 @@
                   caminho e dê Enter.</span>
               </li>
               <li>
-                <span lang="en">Drop the <code>.vst3</code> in there. A <code>Nowhr Dynamics</code> subfolder keeps
-                  things tidy and works just as well — the DAW scans the VST3 folder recursively.</span>
-                <span lang="pt">Solte o <code>.vst3</code> lá dentro. Uma subpasta <code>Nowhr Dynamics</code>
-                  organiza e funciona igual — o DAW varre a pasta VST3 recursivamente.</span>
+                <span lang="en">Drop the whole <code>Nowhr Dynamics</code> folder in there. The DAW scans the VST3
+                  folder recursively, so the subfolder only keeps things tidy.</span>
+                <span lang="pt">Solte a pasta <code>Nowhr Dynamics</code> inteira lá dentro. O DAW varre a pasta VST3
+                  recursivamente, então a subpasta só serve para organizar.</span>
               </li>
               <li>
-                <span lang="en">Rescan your plugins in the DAW. It shows up as an <strong>instrument</strong>, not an effect.</span>
-                <span lang="pt">Mande o DAW reescanear os plugins. Ele aparece como <strong>instrumento</strong>, não como efeito.</span>
+                <span lang="en">Rescan your plugins in the DAW. Progressions shows up under the manufacturer
+                  <strong>Nowhr Dynamics</strong>, as an <strong>instrument</strong> — not an effect.</span>
+                <span lang="pt">Mande o DAW reescanear os plugins. O Progressions aparece sob o fabricante
+                  <strong>Nowhr Dynamics</strong>, como <strong>instrumento</strong> — não como efeito.</span>
               </li>
             </ol>
             <div class="callout">
-              <span lang="en"><strong>Beta builds are not notarised.</strong> If macOS refuses to load it, clear the
-                quarantine flag once in Terminal:</span>
-              <span lang="pt"><strong>As versões beta não são notarizadas.</strong> Se o macOS se recusar a
-                carregar, limpe a flag de quarentena uma vez no Terminal:</span>
-              <pre><code>xattr -dr com.apple.quarantine ~/Library/Audio/Plug-Ins/VST3/Nowhr\ Dynamics/Progressions.vst3</code></pre>
+              <span lang="en"><strong>This step is not optional.</strong> The plugins are ad-hoc signed — no Apple
+                Developer ID, no notarisation — so macOS quarantines anything that comes out of a downloaded
+                <code>.zip</code>, and your DAW may skip them during the scan without saying a word. Run this once in
+                Terminal, after copying:</span>
+              <span lang="pt"><strong>Este passo não é opcional.</strong> Os plugins têm assinatura ad-hoc — sem
+                Developer ID da Apple, sem notarização — então o macOS coloca em quarentena tudo que sai de um
+                <code>.zip</code> baixado, e a sua DAW pode ignorá-los na varredura sem avisar nada. Rode isto uma
+                vez no Terminal, depois de copiar:</span>
+              <pre><code>xattr -dr com.apple.quarantine ~/Library/Audio/Plug-Ins/VST3/</code></pre>
             </div>
           </div>
 
-          <div class="tabpanel" id="inst-win" role="tabpanel" hidden>
-            <ol class="steps">
-              <li>
-                <span lang="en">Unzip the download. You get <strong>Progressions.vst3</strong> — that folder is the plugin,
-                  there is no installer to run.</span>
-                <span lang="pt">Descompacte o download. Você recebe o <strong>Progressions.vst3</strong> — essa pasta é o
-                  plugin, não tem instalador para rodar.</span>
-              </li>
-              <li>
-                <span lang="en">Open the VST3 folder: <code>C:\Program Files\Common Files\VST3\</code>. It is not
-                  hidden — paste that path into the address bar of Explorer and press Enter.</span>
-                <span lang="pt">Abra a pasta VST3: <code>C:\Program Files\Common Files\VST3\</code>. Ela não é
-                  oculta — cole esse caminho na barra de endereço do Explorer e dê Enter.</span>
-              </li>
-              <li>
-                <span lang="en">Drop the <code>.vst3</code> in there. Windows will ask for administrator rights; a
-                  <code>Nowhr Dynamics</code> subfolder keeps things tidy and works just as well.</span>
-                <span lang="pt">Solte o <code>.vst3</code> lá dentro. O Windows vai pedir permissão de
-                  administrador; uma subpasta <code>Nowhr Dynamics</code> organiza e funciona igual.</span>
-              </li>
-              <li>
-                <span lang="en">Rescan your plugins in the DAW. It shows up as an <strong>instrument</strong>, not an effect.</span>
-                <span lang="pt">Mande o DAW reescanear os plugins. Ele aparece como <strong>instrumento</strong>, não como efeito.</span>
-              </li>
-            </ol>
-            <div class="callout">
-              <span lang="en">That path is the standard VST3 location every DAW scans by default. If you would rather
-                not give administrator rights, any folder your DAW is set to scan works too.</span>
-              <span lang="pt">Esse caminho é o lugar padrão de VST3 que todo DAW varre por conta própria. Se preferir
-                não dar permissão de administrador, qualquer pasta que o seu DAW esteja configurado para varrer
-                serve igual.</span>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -882,8 +853,7 @@ Cmaj7/G                          <span lang="en">slash inversions</span><span la
                 instância nova, em qualquer projeto, já abre com ele carregado, mesmo que você mova ou apague a pasta
                 original.</span>
             </p>
-<pre><code>macOS     ~/Library/Application Support/Nowhr Dynamics/Progressions/library.style.json
-Windows   %APPDATA%\Nowhr Dynamics\Progressions\library.style.json</code></pre>
+<pre><code>~/Library/Application Support/Nowhr Dynamics/Progressions/library.style.json</code></pre>
             <p style="margin-top:1rem">
               <span lang="en">The <strong>Write in my style</strong> switch turns the model on and off; the
                 <strong>My style</strong> knob sets how much it gets to say.</span>
@@ -1036,7 +1006,7 @@ Windows   %APPDATA%\Nowhr Dynamics\Progressions\library.style.json</code></pre>
   </div>
 </footer>
 
-<script src="assets/js/config.js?v=3"></script>
-<script src="assets/js/site.js?v=3"></script>
+<script src="assets/js/config.js?v=4"></script>
+<script src="assets/js/site.js?v=4"></script>
 </body>
 </html>

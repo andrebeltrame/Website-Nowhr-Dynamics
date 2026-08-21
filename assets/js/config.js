@@ -56,27 +56,26 @@ window.NOWHR = {
    */
   repo: 'https://github.com/andrebeltrame/Website-Nowhr-Dynamics',
 
+  /*  There is no Windows build in this beta — both zips carry Mach-O bundles
+   *  and nothing else, so the site offers macOS only. When a Windows build
+   *  exists, add a `win` entry here and put the Windows tile and tab back into
+   *  the two plugin pages.
+   */
   downloads: {
     progressions: {
       version: '1.0.0 beta',
       mac: {
-        url:  'https://github.com/andrebeltrame/Website-Nowhr-Dynamics/releases/latest/download/Progressions-macOS.zip',
-        meta: 'VST3 · Universal (Intel + Apple Silicon) · macOS 10.13+'
-      },
-      win: {
-        url:  'https://github.com/andrebeltrame/Website-Nowhr-Dynamics/releases/latest/download/Progressions-Windows.zip',
-        meta: 'VST3 · 64-bit · Windows 10+'
+        url:  'https://github.com/andrebeltrame/Website-Nowhr-Dynamics/releases/latest/download/Progressions-1.0.0-macOS.zip',
+        // arm64 only — verified with `lipo -archs`. It will not run on an
+        // Intel Mac, so the tile has to say so.
+        meta: 'VST3 · Apple Silicon · macOS 11+ · 1,8 MB'
       }
     },
     'grid-frequency': {
       version: '1.0.0 beta',
       mac: {
-        url:  'https://github.com/andrebeltrame/Website-Nowhr-Dynamics/releases/latest/download/GridFrequency-macOS.zip',
-        meta: 'VST3 · Universal (Intel + Apple Silicon) · macOS 10.13+'
-      },
-      win: {
-        url:  'https://github.com/andrebeltrame/Website-Nowhr-Dynamics/releases/latest/download/GridFrequency-Windows.zip',
-        meta: 'VST3 · 64-bit · Windows 10+'
+        url:  'https://github.com/andrebeltrame/Website-Nowhr-Dynamics/releases/latest/download/GridFrequency-1.0.0-macOS.zip',
+        meta: 'VST3 · Universal (Intel + Apple Silicon) · macOS 10.13+ · 6,5 MB'
       }
     }
   },

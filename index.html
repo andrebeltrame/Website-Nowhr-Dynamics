@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nowhr Dynamics — plugins for music production and mixing</title>
+<meta name="description" content="Nowhr Dynamics builds VST3 plugins for music production and mixing. Progressions writes the parts that fit your harmony; Grid Frequency shows you where your tracks collide.">
+<meta name="theme-color" content="#1b1b1c">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nowhr Dynamics">
+<meta property="og:description" content="VST3 plugins for music production and mixing. Two of them, both in open beta.">
+<meta property="og:image" content="assets/img/progressions-chords.jpg">
+<script>
+(function () {
+  var l;
+  try { l = localStorage.getItem('nowhr:lang'); } catch (e) {}
+  if (l !== 'pt' && l !== 'en') l = /^pt/i.test(navigator.language || '') ? 'pt' : 'en';
+  document.documentElement.setAttribute('data-lang', l);
+  document.documentElement.setAttribute('lang', l === 'pt' ? 'pt-BR' : 'en');
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="assets/css/site.css?v=1">
+</head>
+
+<body
+  data-title-en="Nowhr Dynamics — plugins for music production and mixing"
+  data-title-pt="Nowhr Dynamics — plugins para produção musical e mixagem"
+  data-desc-en="Nowhr Dynamics builds VST3 plugins for music production and mixing. Progressions writes the parts that fit your harmony; Grid Frequency shows you where your tracks collide."
+  data-desc-pt="A Nowhr Dynamics faz plugins VST3 para produção musical e mixagem. O Progressions escreve as partes que combinam com a sua harmonia; o Grid Frequency mostra onde as suas pistas se atropelam.">
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="index.html" aria-label="Nowhr Dynamics">
+      <img src="assets/img/logo.svg" alt="Nowhr Dynamics" width="118" height="46">
+    </a>
+    <nav class="site-nav">
+      <a href="#plugins"><span lang="en">Plugins</span><span lang="pt">Plugins</span></a>
+      <a href="progressions.html">Progressions</a>
+      <a href="grid-frequency.html">Grid Frequency</a>
+    </nav>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="pt" aria-pressed="false">PT</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============================================================ hero -- -->
+  <section class="hero">
+    <div class="wrap hero__inner">
+      <div class="hero__meta">
+        <span class="badge badge--beta">
+          <span lang="en">Open beta</span><span lang="pt">Beta aberto</span>
+        </span>
+        <span class="badge badge--ver">VST3 · macOS · Windows</span>
+      </div>
+
+      <h1>
+        <span lang="en">Write it. Then make room for it.</span>
+        <span lang="pt">Escreva. Depois abra espaço.</span>
+      </h1>
+
+      <p class="hero__lede">
+        <span lang="en">Nowhr Dynamics builds plugins for the two places a track usually stalls: finding
+          the parts that fit your harmony, and finding out which of them are fighting each other in the
+          mix. Two plugins, both in open beta, both free while the beta runs.</span>
+        <span lang="pt">A Nowhr Dynamics faz plugins para os dois lugares onde uma música costuma travar:
+          achar as partes que combinam com a sua harmonia, e descobrir quais delas estão brigando entre si
+          na mixagem. Dois plugins, os dois em beta aberto, os dois gratuitos enquanto o beta durar.</span>
+      </p>
+
+      <div class="btn-row">
+        <a class="btn btn--primary" href="#plugins">
+          <span lang="en">See the plugins</span><span lang="pt">Ver os plugins</span>
+        </a>
+        <a class="btn btn--ghost" href="progressions.html">
+          <span lang="en">Get the beta</span><span lang="pt">Pegar o beta</span>
+        </a>
+      </div>
+
+      <figure class="hero-shot">
+        <div class="shot">
+          <img src="assets/img/progressions-chords.jpg" width="1800" height="1356"
+               alt="The Progressions plugin window: analysis panel, piano roll, chord ruler and part controls."
+               fetchpriority="high">
+        </div>
+        <figcaption>
+          <span lang="en">Progressions, running as an instrument in Ableton Live — the detected harmony on the
+            ruler, the generated part on the roll.</span>
+          <span lang="pt">O Progressions rodando como instrumento no Ableton Live — a harmonia detectada na
+            régua, a parte gerada no piano roll.</span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ========================================================= plugins -- -->
+  <section id="plugins">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="section-label"><span lang="en">The plugins</span><span lang="pt">Os plugins</span></p>
+        <h2>
+          <span lang="en">Two tools, one workflow</span>
+          <span lang="pt">Duas ferramentas, um fluxo</span>
+        </h2>
+        <p>
+          <span lang="en">One writes the material. The other tells you what to do with it once there are
+            eight tracks stacked on top of each other.</span>
+          <span lang="pt">Um escreve o material. O outro diz o que fazer com ele quando já são oito pistas
+            empilhadas uma em cima da outra.</span>
+        </p>
+      </div>
+
+      <!-- Progressions -->
+      <article class="plugin-card">
+        <div class="plugin-card__body">
+          <p class="plugin-card__kicker">
+            <span lang="en">MIDI idea generator · VST3 + Standalone</span>
+            <span lang="pt">Gerador de ideias MIDI · VST3 + Standalone</span>
+          </p>
+          <h3>Progressions</h3>
+          <p>
+            <span lang="en">Drop in a MIDI clip, type a progression, or pick a preset. Progressions works out
+              the harmony underneath and writes the parts that go over it — pads, chords, melodies, counter
+              melodies, basslines, arps and plucks — and you drag the result straight onto the timeline.</span>
+            <span lang="pt">Solte um clipe MIDI, digite uma progressão ou escolha um preset. O Progressions
+              descobre a harmonia por trás e escreve as partes que vão por cima — pads, acordes, melodias,
+              contracantos, baixos, arpejos e plucks — e você arrasta o resultado direto para a timeline.</span>
+          </p>
+          <ul>
+            <li>
+              <span lang="en">Detects key, chords and rhythm from any clip — bass, pad, lead or arp.</span>
+              <span lang="pt">Detecta tonalidade, acordes e ritmo de qualquer clipe — baixo, pad, lead ou arpejo.</span>
+            </li>
+            <li>
+              <span lang="en">36 progressions across 12 genres, or type your own in chords or roman numerals.</span>
+              <span lang="pt">36 progressões em 12 gêneros, ou digite a sua em cifras ou graus.</span>
+            </li>
+            <li>
+              <span lang="en">Point it at your MIDI collection and it learns how <em>you</em> write.</span>
+              <span lang="pt">Aponte para a sua coleção de MIDIs e ele aprende como <em>você</em> escreve.</span>
+            </li>
+            <li>
+              <span lang="en">Reharmonise in one click; the same seed always gives the same idea back.</span>
+              <span lang="pt">Reharmoniza com um clique; a mesma semente sempre devolve a mesma ideia.</span>
+            </li>
+          </ul>
+          <div class="btn-row">
+            <a class="btn btn--primary" href="progressions.html">
+              <span lang="en">Manual &amp; download</span><span lang="pt">Manual e download</span>
+            </a>
+          </div>
+        </div>
+        <div class="plugin-card__media">
+          <div class="shot">
+            <img src="assets/img/progressions-pad.jpg" width="1800" height="1359" loading="lazy"
+                 alt="Progressions with the Pad part selected, showing sustained chord voicings on the piano roll.">
+          </div>
+        </div>
+      </article>
+
+      <!-- Grid Frequency -->
+      <article class="plugin-card plugin-card--flip accent-rose">
+        <div class="plugin-card__body">
+          <p class="plugin-card__kicker">
+            <span lang="en">Multi-track analyser · VST3</span>
+            <span lang="pt">Analisador multipista · VST3</span>
+          </p>
+          <h3>Grid Frequency</h3>
+          <p>
+            <span lang="en">One instance on each track, one on the master. Grid Frequency draws every track's
+              spectrum on the same graph, names and colours them, and marks the bands where two of them are
+              fighting over the same range — so you stop guessing which EQ move is the one that matters.</span>
+            <span lang="pt">Uma instância em cada pista, uma no master. O Grid Frequency desenha o espectro de
+              todas elas no mesmo gráfico, com nome e cor, e marca as faixas onde duas estão brigando pela mesma
+              região — para você parar de adivinhar qual movimento de EQ é o que importa.</span>
+          </p>
+          <ul>
+            <li>
+              <span lang="en">Every instance talks to the others: one master view, all tracks overlaid.</span>
+              <span lang="pt">As instâncias conversam entre si: uma visão master, todas as pistas sobrepostas.</span>
+            </li>
+            <li>
+              <span lang="en">Conflict detection names the pair and the band — <code>BASS × KICK, 90–107 Hz</code>.</span>
+              <span lang="pt">A detecção de conflito diz o par e a faixa — <code>BASS × KICK, 90–107 Hz</code>.</span>
+            </li>
+            <li>
+              <span lang="en">Highlight one curve, hide the rest, or freeze the whole picture to study it.</span>
+              <span lang="pt">Destaque uma curva, esconda as outras, ou congele o quadro inteiro para estudar.</span>
+            </li>
+            <li>
+              <span lang="en">Log or linear scale, tilt, speed, floor, ceiling and range, all on hand.</span>
+              <span lang="pt">Escala log ou linear, inclinação, velocidade, piso, topo e alcance, tudo à mão.</span>
+            </li>
+          </ul>
+          <div class="btn-row">
+            <a class="btn btn--rose" href="grid-frequency.html">
+              <span lang="en">Manual &amp; download</span><span lang="pt">Manual e download</span>
+            </a>
+          </div>
+        </div>
+        <div class="plugin-card__media">
+          <div class="shot">
+            <img src="assets/img/grid-conflict.jpg" width="1800" height="1090" loading="lazy"
+                 alt="Grid Frequency in master view, with a BASS × KICK conflict marked at 90–107 Hz.">
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ======================================================== approach -- -->
+  <section id="approach">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="section-label"><span lang="en">How they behave</span><span lang="pt">Como eles se comportam</span></p>
+        <h2>
+          <span lang="en">No account, no phone-home, no license server</span>
+          <span lang="pt">Sem conta, sem telemetria, sem servidor de licença</span>
+        </h2>
+      </div>
+
+      <div class="cols">
+        <div class="card">
+          <div class="card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg>
+          </div>
+          <h3>
+            <span lang="en">Runs where you already work</span>
+            <span lang="pt">Roda onde você já trabalha</span>
+          </h3>
+          <p>
+            <span lang="en">VST3 for macOS and Windows. Copy the bundle into your VST3 folder, rescan, and it
+              shows up. Nothing to activate, nothing to sign in to.</span>
+            <span lang="pt">VST3 para macOS e Windows. Copie o bundle para a sua pasta VST3, mande reescanear
+              e ele aparece. Nada para ativar, nada para logar.</span>
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <h3>
+            <span lang="en">Your material stays yours</span>
+            <span lang="pt">Seu material continua seu</span>
+          </h3>
+          <p>
+            <span lang="en">Progressions can read your whole MIDI collection, and none of it leaves the
+              machine. What it keeps is counts — how often a bar was hit on the seventh sixteenth — never a
+              phrase you wrote.</span>
+            <span lang="pt">O Progressions pode ler a sua coleção de MIDIs inteira, e nada sai da máquina.
+              O que fica são contagens — quantas vezes um compasso teve ataque na sétima semicolcheia — nunca
+              uma frase sua.</span>
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>
+          </div>
+          <h3>
+            <span lang="en">Beta means beta</span>
+            <span lang="pt">Beta é beta mesmo</span>
+          </h3>
+          <p>
+            <span lang="en">Both plugins are usable today, and both are unfinished. Free for as long as the
+              beta runs. Tell me what breaks and it gets fixed.</span>
+            <span lang="pt">Os dois plugins já dão para usar, e os dois estão inacabados. Gratuitos enquanto o
+              beta durar. Me conte o que quebrar que eu conserto.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap site-footer__inner">
+    <div>
+      <a class="brand" href="index.html" aria-label="Nowhr Dynamics">
+        <img src="assets/img/logo.svg" alt="Nowhr Dynamics" width="104" height="41" style="opacity:.65">
+      </a>
+      <small>
+        <span lang="en">© <span data-year></span> Nowhr Dynamics. All plugins in open beta.</span>
+        <span lang="pt">© <span data-year></span> Nowhr Dynamics. Todos os plugins em beta aberto.</span>
+      </small>
+    </div>
+    <nav>
+      <a href="progressions.html">Progressions</a>
+      <a href="grid-frequency.html">Grid Frequency</a>
+      <a href="#" data-repo>GitHub</a>
+      <a href="#" data-email data-email-text>email</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="assets/js/config.js?v=1"></script>
+<script src="assets/js/site.js?v=1"></script>
+</body>
+</html>

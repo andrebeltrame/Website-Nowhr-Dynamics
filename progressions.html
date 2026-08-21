@@ -1,0 +1,1021 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Progressions — Nowhr Dynamics</title>
+<meta name="description" content="Progressions is a VST3 plugin that reads your MIDI clip, works out the harmony, and writes the parts that go with it. Beta download and full manual.">
+<meta name="theme-color" content="#1b1b1c">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Progressions — Nowhr Dynamics">
+<meta property="og:description" content="Drop a clip, get ideas that fit it. Pads, melodies, counter melodies, basslines, arps and plucks over your own harmony.">
+<meta property="og:image" content="assets/img/progressions-chords.jpg">
+<script>
+(function () {
+  var l;
+  try { l = localStorage.getItem('nowhr:lang'); } catch (e) {}
+  if (l !== 'pt' && l !== 'en') l = /^pt/i.test(navigator.language || '') ? 'pt' : 'en';
+  document.documentElement.setAttribute('data-lang', l);
+  document.documentElement.setAttribute('lang', l === 'pt' ? 'pt-BR' : 'en');
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="assets/css/site.css?v=1">
+</head>
+
+<body
+  data-title-en="Progressions — Nowhr Dynamics"
+  data-title-pt="Progressions — Nowhr Dynamics"
+  data-desc-en="Progressions is a VST3 plugin that reads your MIDI clip, works out the harmony, and writes the parts that go with it. Beta download and full manual."
+  data-desc-pt="O Progressions é um plugin VST3 que lê o seu clipe MIDI, descobre a harmonia e escreve as partes que combinam com ela. Download do beta e manual completo.">
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="index.html" aria-label="Nowhr Dynamics">
+      <img src="assets/img/logo.svg" alt="Nowhr Dynamics" width="118" height="46">
+    </a>
+    <nav class="site-nav">
+      <a href="progressions.html" aria-current="page">Progressions</a>
+      <a href="grid-frequency.html">Grid Frequency</a>
+      <a href="#manual"><span lang="en">Manual</span><span lang="pt">Manual</span></a>
+      <a href="#beta"><span lang="en">Download</span><span lang="pt">Download</span></a>
+    </nav>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="pt" aria-pressed="false">PT</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============================================================ hero -- -->
+  <section class="hero">
+    <div class="wrap hero__inner">
+      <div class="hero__meta">
+        <span class="badge badge--beta"><span lang="en">Open beta</span><span lang="pt">Beta aberto</span></span>
+        <span class="badge badge--ver"><span data-version>1.0.0 beta</span></span>
+        <span class="badge badge--ver">VST3 · macOS · Windows</span>
+      </div>
+
+      <h1>Progressions</h1>
+
+      <p class="hero__lede">
+        <span lang="en">Drop a clip, get ideas that fit it. Progressions reads the harmony behind a MIDI
+          clip — or takes the progression you type — and writes pads, chords, melodies, counter melodies,
+          basslines, arps and plucks over it. Then you drag the result onto the timeline.</span>
+        <span lang="pt">Solte um clipe, receba ideias que combinam com ele. O Progressions lê a harmonia por
+          trás de um clipe MIDI — ou aceita a progressão que você digitar — e escreve pads, acordes, melodias,
+          contracantos, baixos, arpejos e plucks por cima. Depois é só arrastar o resultado para a timeline.</span>
+      </p>
+
+      <div class="btn-row">
+        <a class="btn btn--primary" href="#beta">
+          <span lang="en">Get the beta</span><span lang="pt">Pegar o beta</span>
+        </a>
+        <a class="btn btn--ghost" href="#manual">
+          <span lang="en">Read the manual</span><span lang="pt">Ler o manual</span>
+        </a>
+      </div>
+
+      <figure class="hero-shot">
+        <div class="shot">
+          <img src="assets/img/progressions-chords.jpg" width="1800" height="1356" fetchpriority="high"
+               alt="The Progressions window: analysis panel on the left, piano roll on the right, chord ruler underneath, part tabs and knobs along the bottom.">
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ======================================================== features -- -->
+  <section id="features">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="section-label"><span lang="en">What it does</span><span lang="pt">O que ele faz</span></p>
+        <h2>
+          <span lang="en">Three ways in, one place they all land</span>
+          <span lang="pt">Três caminhos de entrada, um lugar onde todos chegam</span>
+        </h2>
+        <p>
+          <span lang="en">A clip you drop, a progression you type, or a preset you pick. Whichever you use,
+            the plugin ends up with the same thing: a key, a chord grid, a groove — and everything after that
+            is written on top of it.</span>
+          <span lang="pt">Um clipe que você solta, uma progressão que você digita, ou um preset que você
+            escolhe. Não importa qual, o plugin termina com a mesma coisa: uma tonalidade, uma grade de
+            acordes, um groove — e tudo depois disso é escrito em cima.</span>
+        </p>
+      </div>
+
+      <div class="feature">
+        <div class="feature__body">
+          <h3>
+            <span lang="en">It works out what your clip is doing</span>
+            <span lang="pt">Ele descobre o que o seu clipe está fazendo</span>
+          </h3>
+          <p>
+            <span lang="en">Key with a confidence figure, the chord grid, tempo and meter, the register the clip
+              occupies, how many notes a bar it plays — and what kind of part it reads as. A monophonic bass and
+              a wide lead are analysed differently on purpose, because a bass carries the root and a lead does
+              not.</span>
+            <span lang="pt">Tonalidade com um índice de confiança, a grade de acordes, andamento e compasso, o
+              registro que o clipe ocupa, quantas notas por compasso ele toca — e que tipo de parte ele é. Um
+              baixo monofônico e um lead largo são analisados de formas diferentes de propósito, porque um baixo
+              carrega a fundamental e um lead não.</span>
+          </p>
+        </div>
+        <div class="feature__media">
+          <div class="shot">
+            <img src="assets/img/progressions-daw.jpg" width="1800" height="1478" loading="lazy"
+                 alt="Progressions open in Ableton Live with the generated counter melody showing in the piano roll below.">
+          </div>
+        </div>
+      </div>
+
+      <div class="feature feature--flip">
+        <div class="feature__body">
+          <h3>
+            <span lang="en">Seven parts, and each one hears the last</span>
+            <span lang="pt">Sete partes, e cada uma escuta a anterior</span>
+          </h3>
+          <p>
+            <span lang="en">Pad, Chords, Melody, Counter, Bass, Arp and Pluck. The pad does real voice leading —
+              it looks for the inversion that moves least. The melody builds a short motif and then works it:
+              inversion, retrograde, fragmentation, passing notes. The counter melody is pushed into contrary
+              motion and forbidden from doubling your notes.</span>
+            <span lang="pt">Pad, Chords, Melody, Counter, Bass, Arp e Pluck. O pad faz condução de vozes de
+              verdade — procura a inversão que menos se movimenta. A melodia constrói um motivo curto e depois o
+              trabalha: inversão, retrógrado, fragmentação, notas de passagem. O contracanto é empurrado para
+              movimento contrário e proibido de dobrar as suas notas.</span>
+          </p>
+        </div>
+        <div class="feature__media">
+          <div class="shot">
+            <img src="assets/img/progressions-pad.jpg" width="1800" height="1359" loading="lazy"
+                 alt="The Pad part selected in Progressions, with sustained four-voice chord shapes on the piano roll.">
+          </div>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="feature__body">
+          <h3>
+            <span lang="en">It can learn to write like you</span>
+            <span lang="pt">Ele pode aprender a escrever como você</span>
+          </h3>
+          <p>
+            <span lang="en">Point it at your MIDI folder and it reads the collection in the background — which
+              sixteenths your bars land on, how your lines move in scale steps, what you play over a root, how
+              wide you voice a chord. What it keeps is counts, never phrases: nothing you wrote can be
+              reconstructed from it, and nothing you wrote is stored.</span>
+            <span lang="pt">Aponte para a sua pasta de MIDIs e ele lê a coleção em segundo plano — em quais
+              semicolcheias os seus compassos caem, como as suas linhas se movem em graus, o que você toca sobre
+              uma fundamental, quão aberto você faz um acorde. O que fica são contagens, nunca frases: nada que
+              você escreveu pode ser reconstruído dali, e nada que você escreveu é guardado.</span>
+          </p>
+        </div>
+        <div class="feature__media">
+          <div class="shot">
+            <img src="assets/img/progressions-about.jpg" width="1050" height="685" loading="lazy"
+                 alt="The Progressions about panel, stating that the collection never leaves the machine.">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ============================================================ beta -- -->
+  <section id="beta">
+    <div class="wrap wrap--narrow">
+
+      <div id="beta-gate" class="gate">
+        <p class="section-label"><span lang="en">Beta access</span><span lang="pt">Acesso ao beta</span></p>
+        <h2>
+          <span lang="en">Get the Progressions beta</span>
+          <span lang="pt">Pegue o beta do Progressions</span>
+        </h2>
+        <p class="gate__sub">
+          <span lang="en">Leave your details and the download links appear right here. I use them to send you
+            beta updates and nothing else.</span>
+          <span lang="pt">Deixe seus dados e os links de download aparecem aqui mesmo. Eu uso isso para te
+            avisar das atualizações do beta e mais nada.</span>
+        </p>
+
+        <form id="beta-form" data-plugin="progressions" data-plugin-label="Progressions" novalidate>
+          <div class="field-grid">
+            <div class="field">
+              <label for="p-name"><span lang="en">Name</span><span lang="pt">Nome</span></label>
+              <input id="p-name" name="name" type="text" required autocomplete="name"
+                     data-ph-en="Your name" data-ph-pt="Seu nome" placeholder="Your name">
+            </div>
+            <div class="field">
+              <label for="p-email">E-mail</label>
+              <input id="p-email" name="email" type="email" required autocomplete="email"
+                     placeholder="you@example.com">
+            </div>
+            <div class="field field--wide">
+              <label for="p-daw"><span lang="en">Which DAW do you use?</span><span lang="pt">Qual DAW você usa?</span></label>
+              <select id="p-daw" name="daw" required>
+                <option value="" data-en="Select…" data-pt="Selecione…">Select…</option>
+                <option value="Ableton Live">Ableton Live</option>
+                <option value="FL Studio">FL Studio</option>
+                <option value="Logic Pro">Logic Pro</option>
+                <option value="Cubase">Cubase</option>
+                <option value="Studio One">Studio One</option>
+                <option value="Bitwig">Bitwig</option>
+                <option value="Reaper">Reaper</option>
+                <option value="Pro Tools">Pro Tools</option>
+                <option value="Other" data-en="Other" data-pt="Outro">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="hp" aria-hidden="true">
+            <label for="p-company">Company</label>
+            <input id="p-company" name="company" type="text" tabindex="-1" autocomplete="off">
+          </div>
+
+          <label class="consent">
+            <input type="checkbox" name="consent" required>
+            <span>
+              <span lang="en">You can email me about the Progressions beta. No newsletter, no third parties.</span>
+              <span lang="pt">Pode me mandar e-mail sobre o beta do Progressions. Sem newsletter, sem terceiros.</span>
+            </span>
+          </label>
+
+          <div class="btn-row">
+            <button class="btn btn--primary btn--block" type="submit">
+              <span lang="en">Show me the downloads</span><span lang="pt">Mostrar os downloads</span>
+            </button>
+          </div>
+
+          <p class="form-note">
+            <span lang="en">The plugin itself never sends anything anywhere — this form is the one place your
+              details are asked for.</span>
+            <span lang="pt">O plugin em si nunca manda nada para lugar nenhum — este formulário é o único lugar
+              onde seus dados são pedidos.</span>
+          </p>
+
+          <p class="form-error" id="beta-error" hidden>
+            <span lang="en">That did not go through. Check your connection and try again.</span>
+            <span lang="pt">Não deu certo. Confira sua conexão e tente de novo.</span>
+          </p>
+        </form>
+      </div>
+
+      <div id="beta-downloads" hidden>
+        <div class="gate">
+          <div class="dl-head">
+            <span class="dl-check" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg>
+            </span>
+            <h2><span lang="en">You're in</span><span lang="pt">Pronto</span></h2>
+          </div>
+          <p class="gate__sub">
+            <span lang="en">Progressions <span data-version>1.0.0 beta</span>. Grab the build for your system,
+              then follow the three steps below.</span>
+            <span lang="pt">Progressions <span data-version>1.0.0 beta</span>. Pegue a versão do seu sistema e
+              siga os três passos abaixo.</span>
+          </p>
+
+          <div class="dl-grid">
+            <a class="dl-tile" data-dl="mac" href="#" download>
+              <span class="dl-tile__os">macOS</span>
+              <span class="dl-tile__meta"></span>
+            </a>
+            <a class="dl-tile" data-dl="win" href="#" download>
+              <span class="dl-tile__os">Windows</span>
+              <span class="dl-tile__meta"></span>
+            </a>
+          </div>
+
+          <div class="tabs" role="tablist">
+            <button type="button" role="tab" data-os="mac" aria-controls="inst-mac" aria-selected="true">macOS</button>
+            <button type="button" role="tab" data-os="win" aria-controls="inst-win" aria-selected="false">Windows</button>
+          </div>
+
+          <div class="tabpanel" id="inst-mac" role="tabpanel">
+            <ol class="steps">
+              <li>
+                <span lang="en">Unzip the download. You get <strong>Progressions.vst3</strong>.</span>
+                <span lang="pt">Descompacte o download. Você recebe o <strong>Progressions.vst3</strong>.</span>
+              </li>
+              <li>
+                <span lang="en">Copy it into <code>~/Library/Audio/Plug-Ins/VST3/Nowhr Dynamics/</code>. Create the
+                  <code>Nowhr Dynamics</code> folder if it is not there — the DAW scans the VST3 folder
+                  recursively, so the subfolder only keeps things tidy.</span>
+                <span lang="pt">Copie para <code>~/Library/Audio/Plug-Ins/VST3/Nowhr Dynamics/</code>. Crie a pasta
+                  <code>Nowhr Dynamics</code> se ela não existir — o DAW varre a pasta VST3 recursivamente, então
+                  a subpasta só serve para organizar.</span>
+              </li>
+              <li>
+                <span lang="en">Rescan your plugins in the DAW. Progressions shows up as an
+                  <strong>instrument</strong>, not an effect.</span>
+                <span lang="pt">Mande o DAW reescanear os plugins. O Progressions aparece como
+                  <strong>instrumento</strong>, não como efeito.</span>
+              </li>
+            </ol>
+            <div class="callout">
+              <span lang="en"><strong>Beta builds are not notarised.</strong> If macOS refuses to load it, clear the
+                quarantine flag once in Terminal:</span>
+              <span lang="pt"><strong>As versões beta não são notarizadas.</strong> Se o macOS se recusar a
+                carregar, limpe a flag de quarentena uma vez no Terminal:</span>
+              <pre><code>xattr -dr com.apple.quarantine ~/Library/Audio/Plug-Ins/VST3/Nowhr\ Dynamics/Progressions.vst3</code></pre>
+            </div>
+          </div>
+
+          <div class="tabpanel" id="inst-win" role="tabpanel" hidden>
+            <ol class="steps">
+              <li>
+                <span lang="en">Unzip the download. You get <strong>Progressions.vst3</strong>.</span>
+                <span lang="pt">Descompacte o download. Você recebe o <strong>Progressions.vst3</strong>.</span>
+              </li>
+              <li>
+                <span lang="en">Copy it into <code>C:\Program Files\Common Files\VST3\Nowhr Dynamics\</code>.
+                  Create the <code>Nowhr Dynamics</code> folder if it is not there.</span>
+                <span lang="pt">Copie para <code>C:\Program Files\Common Files\VST3\Nowhr Dynamics\</code>. Crie a
+                  pasta <code>Nowhr Dynamics</code> se ela não existir.</span>
+              </li>
+              <li>
+                <span lang="en">Rescan your plugins in the DAW. Progressions shows up as an
+                  <strong>instrument</strong>, not an effect.</span>
+                <span lang="pt">Mande o DAW reescanear os plugins. O Progressions aparece como
+                  <strong>instrumento</strong>, não como efeito.</span>
+              </li>
+            </ol>
+            <div class="callout">
+              <span lang="en">Copying into <code>Program Files</code> asks for administrator rights. If you would
+                rather not give them, any folder your DAW is set to scan works just as well.</span>
+              <span lang="pt">Copiar para <code>Program Files</code> pede permissão de administrador. Se preferir
+                não dar, qualquer pasta que o seu DAW esteja configurado para varrer serve igual.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ========================================================== manual -- -->
+  <section id="manual">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="section-label"><span lang="en">Mini manual</span><span lang="pt">Mini manual</span></p>
+        <h2>
+          <span lang="en">Every control, and what it changes</span>
+          <span lang="pt">Cada controle, e o que ele muda</span>
+        </h2>
+      </div>
+
+      <div class="manual">
+        <nav class="manual__toc" aria-label="Manual contents">
+          <ol>
+            <li><a href="#m-start"><span lang="en">1. Getting started</span><span lang="pt">1. Primeiros passos</span></a></li>
+            <li><a href="#m-analysis"><span lang="en">2. The analysis panel</span><span lang="pt">2. O painel de análise</span></a></li>
+            <li><a href="#m-chords"><span lang="en">3. Writing the progression</span><span lang="pt">3. Escrevendo a progressão</span></a></li>
+            <li><a href="#m-parts"><span lang="en">4. The seven parts</span><span lang="pt">4. As sete partes</span></a></li>
+            <li><a href="#m-knobs"><span lang="en">5. The knobs</span><span lang="pt">5. Os knobs</span></a></li>
+            <li><a href="#m-controls"><span lang="en">6. Switches and menus</span><span lang="pt">6. Chaves e menus</span></a></li>
+            <li><a href="#m-style"><span lang="en">7. Writing in your style</span><span lang="pt">7. Escrever no seu estilo</span></a></li>
+            <li><a href="#m-output"><span lang="en">8. Getting it out</span><span lang="pt">8. Tirando o resultado</span></a></li>
+            <li><a href="#m-trouble"><span lang="en">9. If something looks off</span><span lang="pt">9. Se algo parecer errado</span></a></li>
+          </ol>
+        </nav>
+
+        <div class="manual__body">
+
+          <!-- 1 -->
+          <section id="m-start">
+            <h3><span lang="en">1. Getting started</span><span lang="pt">1. Primeiros passos</span></h3>
+            <p>
+              <span lang="en">Load Progressions as an <strong>instrument</strong> on a MIDI track. There are three
+                ways to give it harmony, and they all end in the same place:</span>
+              <span lang="pt">Carregue o Progressions como <strong>instrumento</strong> numa pista MIDI. Há três
+                jeitos de dar harmonia a ele, e todos terminam no mesmo lugar:</span>
+            </p>
+            <ul>
+              <li>
+                <span lang="en"><strong>Drop a <code>.mid</code> file</strong> anywhere on the window, or use
+                  <strong>Load MIDI…</strong>. It can be a bass, a pad, a lead or a pluck — the plugin figures out
+                  which.</span>
+                <span lang="pt"><strong>Solte um arquivo <code>.mid</code></strong> em qualquer lugar da janela, ou
+                  use <strong>Load MIDI…</strong>. Pode ser um baixo, um pad, um lead ou um pluck — o plugin
+                  descobre qual é.</span>
+              </li>
+              <li>
+                <span lang="en"><strong>Type a progression</strong> into the field under the piano roll and press
+                  Enter, or click <strong>Set</strong>.</span>
+                <span lang="pt"><strong>Digite uma progressão</strong> no campo embaixo do piano roll e aperte
+                  Enter, ou clique em <strong>Set</strong>.</span>
+              </li>
+              <li>
+                <span lang="en"><strong>Pick a preset</strong> from the combo next to that field — 36 progressions
+                  across 12 genres.</span>
+                <span lang="pt"><strong>Escolha um preset</strong> no combo ao lado desse campo — 36 progressões em
+                  12 gêneros.</span>
+              </li>
+            </ul>
+            <p>
+              <span lang="en">Then pick a part along the bottom row, adjust the knobs, and press
+                <strong>New idea</strong> until something lands. <strong>Init</strong> puts everything back to how
+                it opened; <strong>Clear clip</strong> throws away the loaded clip and keeps everything else.</span>
+              <span lang="pt">Depois escolha uma parte na linha de baixo, ajuste os knobs e aperte
+                <strong>New idea</strong> até aparecer algo que sirva. <strong>Init</strong> devolve tudo ao estado
+                inicial; <strong>Clear clip</strong> joga fora o clipe carregado e mantém o resto.</span>
+            </p>
+          </section>
+
+          <!-- 2 -->
+          <section id="m-analysis">
+            <h3><span lang="en">2. The analysis panel</span><span lang="pt">2. O painel de análise</span></h3>
+            <p>
+              <span lang="en">With no clip loaded it says <code>waiting for a clip</code> and shows how big the
+                style library it is carrying is. With a clip loaded it fills in:</span>
+              <span lang="pt">Sem clipe carregado ele diz <code>waiting for a clip</code> e mostra o tamanho da
+                biblioteca de estilo que ele carrega. Com um clipe carregado ele preenche:</span>
+            </p>
+            <div class="tbl-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th><span lang="en">Row</span><span lang="pt">Linha</span></th>
+                    <th><span lang="en">What it tells you</span><span lang="pt">O que ela diz</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Key</td><td>
+                    <span lang="en">Detected key and mode, with a confidence percentage. Low confidence usually means
+                      the clip is too short or too chromatic to be sure.</span>
+                    <span lang="pt">Tonalidade e modo detectados, com uma porcentagem de confiança. Confiança baixa
+                      quase sempre quer dizer que o clipe é curto ou cromático demais para ter certeza.</span>
+                  </td></tr>
+                  <tr><td>Tempo</td><td>
+                    <span lang="en">BPM and time signature read from the file.</span>
+                    <span lang="pt">BPM e fórmula de compasso lidos do arquivo.</span>
+                  </td></tr>
+                  <tr><td>Length</td><td>
+                    <span lang="en">How many bars the clip runs for.</span>
+                    <span lang="pt">Quantos compassos o clipe dura.</span>
+                  </td></tr>
+                  <tr><td>Clip reads as</td><td>
+                    <span lang="en">Bass, pad, chords, lead, arp or pluck. This changes the analysis itself, not just
+                      the label — a bass gets extra weight on the root.</span>
+                    <span lang="pt">Baixo, pad, acordes, lead, arpejo ou pluck. Isso muda a própria análise, não só o
+                      rótulo — um baixo ganha peso extra na fundamental.</span>
+                  </td></tr>
+                  <tr><td>Register</td><td>
+                    <span lang="en">Lowest and highest note in the clip. <strong>Stay clear</strong> uses this range to
+                      keep the new part out of the way.</span>
+                    <span lang="pt">Nota mais grave e mais aguda do clipe. O <strong>Stay clear</strong> usa essa faixa
+                      para manter a parte nova fora do caminho.</span>
+                  </td></tr>
+                  <tr><td>Density</td><td>
+                    <span lang="en">Notes per bar in the source. <strong>Follow groove</strong> writes against this.</span>
+                    <span lang="pt">Notas por compasso na fonte. O <strong>Follow groove</strong> escreve com base nisso.</span>
+                  </td></tr>
+                  <tr><td>Seed</td><td>
+                    <span lang="en">The number behind this idea. Same seed plus same settings gives back the exact same
+                      notes, every time. It is saved with the project.</span>
+                    <span lang="pt">O número por trás desta ideia. A mesma semente com os mesmos ajustes devolve
+                      exatamente as mesmas notas, sempre. Ela é salva junto com o projeto.</span>
+                  </td></tr>
+                  <tr><td>Generated</td><td>
+                    <span lang="en">How many notes the current part came out with.</span>
+                    <span lang="pt">Com quantas notas a parte atual saiu.</span>
+                  </td></tr>
+                  <tr><td>My style</td><td>
+                    <span lang="en">How many clips the loaded style model was built from, and where it came from.</span>
+                    <span lang="pt">De quantos clipes o modelo de estilo carregado foi construído, e de onde ele veio.</span>
+                  </td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- 3 -->
+          <section id="m-chords">
+            <h3><span lang="en">3. Writing the progression</span><span lang="pt">3. Escrevendo a progressão</span></h3>
+            <p>
+              <span lang="en">The text field under the chord ruler takes both notations, mixed if you like. Press
+                Enter or click <strong>Set</strong> to apply. The field outlines in red if it cannot read what you
+                typed.</span>
+              <span lang="pt">O campo de texto embaixo da régua de acordes aceita as duas notações, misturadas se
+                você quiser. Aperte Enter ou clique em <strong>Set</strong> para aplicar. O campo fica com contorno
+                vermelho se ele não conseguir ler o que você digitou.</span>
+            </p>
+<pre><code>Am | F | C | G                   <span lang="en">chord symbols</span><span lang="pt">cifras</span>
+i - VI - III - VII               <span lang="en">degrees, in the current key</span><span lang="pt">graus, na tonalidade atual</span>
+Cm7 Fm7 Bb7 Ebmaj7               <span lang="en">a space separates too</span><span lang="pt">espaço também separa</span>
+i9 | IV9                         <span lang="en">degrees with extensions</span><span lang="pt">graus com extensão</span>
+F#m7b5 | B7 | Em                 <span lang="en">accidentals and full qualities</span><span lang="pt">acidentes e qualidades completas</span>
+Cmaj7/G                          <span lang="en">slash inversions</span><span lang="pt">inversões com barra</span></code></pre>
+
+            <h4><span lang="en">Two rules worth knowing</span><span lang="pt">Duas regras que vale saber</span></h4>
+            <ul>
+              <li>
+                <span lang="en"><strong>Upper case is major, lower case is minor.</strong> In A minor, <code>V</code>
+                  is E major and <code>v</code> is E minor.</span>
+                <span lang="pt"><strong>Maiúscula é maior, minúscula é menor.</strong> Em Lá menor, <code>V</code> é
+                  Mi maior e <code>v</code> é Mi menor.</span>
+              </li>
+              <li>
+                <span lang="en"><strong>Degrees are counted in the key's own scale.</strong> In A minor,
+                  <code>i VI III VII</code> is <code>Am F C G</code> — the notation producers use, not the
+                  conservatoire one that would write <code>i bVI bIII bVII</code>.</span>
+                <span lang="pt"><strong>Os graus são contados na escala da própria tonalidade.</strong> Em Lá menor,
+                  <code>i VI III VII</code> é <code>Am F C G</code> — a notação que produtor usa, não a do
+                  conservatório, que escreveria <code>i bVI bIII bVII</code>.</span>
+              </li>
+            </ul>
+            <p>
+              <span lang="en">Recognised qualities: <code>m</code>, <code>maj7</code>, <code>m7</code>, <code>7</code>,
+                <code>9</code>, <code>maj9</code>, <code>m9</code>, <code>6</code>, <code>m6</code>, <code>dim</code>,
+                <code>dim7</code>, <code>m7b5</code>, <code>aug</code>, <code>sus2</code>, <code>sus4</code>,
+                <code>7sus4</code>, <code>add9</code> and <code>5</code>.</span>
+              <span lang="pt">Qualidades reconhecidas: <code>m</code>, <code>maj7</code>, <code>m7</code>,
+                <code>7</code>, <code>9</code>, <code>maj9</code>, <code>m9</code>, <code>6</code>, <code>m6</code>,
+                <code>dim</code>, <code>dim7</code>, <code>m7b5</code>, <code>aug</code>, <code>sus2</code>,
+                <code>sus4</code>, <code>7sus4</code>, <code>add9</code> e <code>5</code>.</span>
+            </p>
+
+            <h4><span lang="en">The chord chips</span><span lang="pt">Os chips de acorde</span></h4>
+            <p>
+              <span lang="en">Each chord in the ruler shows its name and its degree. <strong>Click</strong> a chip to
+                push that chord up a degree; <strong>right-click</strong> to push it down. It is the fastest way to
+                try one substitution without retyping the line.</span>
+              <span lang="pt">Cada acorde na régua mostra o nome e o grau. <strong>Clique</strong> num chip para subir
+                aquele acorde um grau; <strong>botão direito</strong> para descer. É o jeito mais rápido de testar
+                uma substituição sem redigitar a linha inteira.</span>
+            </p>
+
+            <h4><span lang="en">With and without a clip</span><span lang="pt">Com e sem clipe</span></h4>
+            <p>
+              <span lang="en"><strong>With a clip loaded</strong>, writing a progression replaces only the chords —
+                tempo, meter, length and groove stay the clip's. That is how you keep a bassline you like and try
+                different harmony over it. <strong>With no clip</strong>, the progression becomes the whole material:
+                one bar per chord, at the DAW's tempo.</span>
+              <span lang="pt"><strong>Com um clipe carregado</strong>, escrever uma progressão troca só os acordes —
+                andamento, compasso, tamanho e groove continuam sendo os do clipe. É assim que você mantém um baixo
+                que gosta e testa outra harmonia por cima. <strong>Sem clipe nenhum</strong>, a progressão vira o
+                material inteiro: um compasso por acorde, no andamento do DAW.</span>
+            </p>
+          </section>
+
+          <!-- 4 -->
+          <section id="m-parts">
+            <h3><span lang="en">4. The seven parts</span><span lang="pt">4. As sete partes</span></h3>
+            <div class="tbl-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th><span lang="en">Part</span><span lang="pt">Parte</span></th>
+                    <th><span lang="en">What comes out</span><span lang="pt">O que sai</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Pad</td><td>
+                    <span lang="en">Sustained voices, one shape per chord, with real voice leading — it picks the
+                      inversion that moves least from the last one.</span>
+                    <span lang="pt">Vozes sustentadas, uma forma por acorde, com condução de vozes de verdade — ele
+                      escolhe a inversão que menos se move em relação à anterior.</span>
+                  </td></tr>
+                  <tr><td>Chords</td><td>
+                    <span lang="en">The same material played in rhythm instead of held, following the groove.</span>
+                    <span lang="pt">O mesmo material tocado em bloco rítmico em vez de sustentado, seguindo o groove.</span>
+                  </td></tr>
+                  <tr><td>Melody</td><td>
+                    <span lang="en">A line built from a short motif and developed across the phrase — inversion,
+                      retrograde, fragmentation, passing notes — with a pitch arc that holds, rises, peaks and
+                      settles. <strong>Craft</strong> sets how much of that happens.</span>
+                    <span lang="pt">Uma linha construída a partir de um motivo curto e desenvolvida ao longo da frase
+                      — inversão, retrógrado, fragmentação, notas de passagem — com um arco de altura que segura,
+                      sobe, chega ao pico e assenta. O <strong>Craft</strong> dosa quanto disso acontece.</span>
+                  </td></tr>
+                  <tr><td>Counter</td><td>
+                    <span lang="en">Same construction as the melody, but pushed into contrary motion against the clip
+                      and forbidden from doubling its notes.</span>
+                    <span lang="pt">Mesma construção da melodia, mas empurrada para movimento contrário ao do clipe e
+                      proibida de dobrar as notas dele.</span>
+                  </td></tr>
+                  <tr><td>Bass</td><td>
+                    <span lang="en">Roots with fifths, octaves and chromatic approaches into the next chord.</span>
+                    <span lang="pt">Fundamentais com quintas, oitavas e aproximações cromáticas para o próximo acorde.</span>
+                  </td></tr>
+                  <tr><td>Arp</td><td>
+                    <span lang="en">Chord tones in the shape set by <strong>Arp shape</strong>: Up, Down, Up-Down,
+                      Down-Up, Converge or Random.</span>
+                    <span lang="pt">Notas do acorde na forma definida em <strong>Arp shape</strong>: Up, Down, Up-Down,
+                      Down-Up, Converge ou Random.</span>
+                  </td></tr>
+                  <tr><td>Pluck</td><td>
+                    <span lang="en">Short chord tones on the groove, with leaps and doubled octaves on the accents —
+                      the house pluck.</span>
+                    <span lang="pt">Notas curtas do acorde em cima do groove, com saltos e oitavas dobradas nos
+                      acentos — o pluck de house.</span>
+                  </td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p style="margin-top:1.25rem">
+              <span lang="en">When a clip is loaded, every part is written against it: the melody inherits the bass's
+                groove and avoids clashing with it on strong beats.</span>
+              <span lang="pt">Com um clipe carregado, toda parte é escrita contra ele: a melodia herda o groove do
+                baixo e evita bater contra ele nos tempos fortes.</span>
+            </p>
+          </section>
+
+          <!-- 5 -->
+          <section id="m-knobs">
+            <h3><span lang="en">5. The knobs</span><span lang="pt">5. Os knobs</span></h3>
+            <p>
+              <span lang="en">A knob that does not apply to the selected part is dimmed rather than hidden, so the
+                row never moves under your mouse.</span>
+              <span lang="pt">Um knob que não vale para a parte selecionada fica apagado em vez de sumir, para a
+                linha nunca se mexer debaixo do seu mouse.</span>
+            </p>
+            <div class="tbl-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th><span lang="en">Knob</span><span lang="pt">Knob</span></th>
+                    <th><span lang="en">Range</span><span lang="pt">Faixa</span></th>
+                    <th><span lang="en">What it does</span><span lang="pt">O que faz</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Density</td><td><code>0–100%</code><br><span lang="en">default 50%</span><span lang="pt">padrão 50%</span></td><td>
+                    <span lang="en">How busy the part is — how many of the available positions actually get a note.</span>
+                    <span lang="pt">O quanto a parte é movimentada — quantas das posições disponíveis realmente recebem nota.</span>
+                  </td></tr>
+                  <tr><td>Colour</td><td><code>0–100%</code><br><span lang="en">default 50%</span><span lang="pt">padrão 50%</span></td><td>
+                    <span lang="en">How much colour the harmony gets. Low and the chords reduce to plain triads; in
+                      the middle you get sevenths; high and ninths come in where the key allows, along with more
+                      chromatic approach notes and wider leaps.</span>
+                    <span lang="pt">Quanta cor a harmonia ganha. Baixo, os acordes reduzem a tríades simples; no meio
+                      entram as sétimas; alto, entram nonas onde a tonalidade permite, junto com mais notas de
+                      aproximação cromática e saltos mais largos.</span>
+                  </td></tr>
+                  <tr><td>Craft</td><td><code>0–100%</code><br><span lang="en">default 40%</span><span lang="pt">padrão 40%</span></td><td>
+                    <span lang="en">How hard the melody works its motif. At 0 it only repeats and transposes; turn it
+                      up and the motif gets inverted, reversed, fragmented, and third leaps fill in with passing
+                      notes. <strong>Melody and Counter only.</strong></span>
+                    <span lang="pt">O quanto a melodia trabalha o motivo. Em 0 ela só repete e transpõe; subindo, o
+                      motivo é invertido, tocado ao contrário, fragmentado, e os saltos de terça ganham a nota de
+                      passagem no meio. <strong>Só para Melody e Counter.</strong></span>
+                  </td></tr>
+                  <tr><td>Human</td><td><code>0–100%</code><br><span lang="en">default 15%</span><span lang="pt">padrão 15%</span></td><td>
+                    <span lang="en">Timing and velocity drift, so the part does not sit perfectly on the grid.</span>
+                    <span lang="pt">Variação de tempo e velocity, para a parte não ficar perfeitamente colada na grade.</span>
+                  </td></tr>
+                  <tr><td>Swing</td><td><code>0–100%</code><br><span lang="en">default 0%</span><span lang="pt">padrão 0%</span></td><td>
+                    <span lang="en">Pushes the off-beat sixteenths late, from straight through to a hard shuffle.</span>
+                    <span lang="pt">Empurra as semicolcheias de contratempo para depois, do reto até um shuffle forte.</span>
+                  </td></tr>
+                  <tr><td>Octave</td><td><code>−2 … +2</code><br><span lang="en">default 0</span><span lang="pt">padrão 0</span></td><td>
+                    <span lang="en">Shifts the whole part by octaves after everything else is decided.</span>
+                    <span lang="pt">Desloca a parte inteira em oitavas depois que todo o resto já foi decidido.</span>
+                  </td></tr>
+                  <tr><td>Voices</td><td><code>2 … 6</code><br><span lang="en">default 4</span><span lang="pt">padrão 4</span></td><td>
+                    <span lang="en">How many notes are in each chord shape. <strong>Pad, Chords and Arp only.</strong></span>
+                    <span lang="pt">Quantas notas cada acorde tem. <strong>Só para Pad, Chords e Arp.</strong></span>
+                  </td></tr>
+                  <tr><td>My style</td><td><code>0–100%</code><br><span lang="en">default 100%</span><span lang="pt">padrão 100%</span></td><td>
+                    <span lang="en">How much the learned model gets to decide, against the plugin's built-in feel.
+                      Greyed out until a library is loaded.</span>
+                    <span lang="pt">O quanto o modelo aprendido manda, contra o feel interno do plugin. Fica apagado
+                      até uma biblioteca ser carregada.</span>
+                  </td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- 6 -->
+          <section id="m-controls">
+            <h3><span lang="en">6. Switches and menus</span><span lang="pt">6. Chaves e menus</span></h3>
+            <div class="tbl-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th><span lang="en">Control</span><span lang="pt">Controle</span></th>
+                    <th><span lang="en">What it does</span><span lang="pt">O que faz</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Length</td><td>
+                    <span lang="en"><code>As source</code>, or 1, 2, 4, 8 or 16 bars. Repeats the progression until the
+                      length is filled.</span>
+                    <span lang="pt"><code>As source</code>, ou 1, 2, 4, 8 ou 16 compassos. Repete a progressão até
+                      completar o tamanho.</span>
+                  </td></tr>
+                  <tr><td>Chord changes</td><td>
+                    <span lang="en"><code>Auto</code>, <code>1 per bar</code>, <code>2 per bar</code> or
+                      <code>1 per beat</code>. Forces the harmonic grid. If the detector finds one chord in a lead you
+                      know has four, force <code>1 per bar</code>.</span>
+                    <span lang="pt"><code>Auto</code>, <code>1 per bar</code>, <code>2 per bar</code> ou
+                      <code>1 per beat</code>. Força a grade harmônica. Se o detector achar um acorde só num lead que
+                      você sabe que tem quatro, force <code>1 per bar</code>.</span>
+                  </td></tr>
+                  <tr><td>Key</td><td>
+                    <span lang="en">Pins the key instead of letting the detector choose. It also decides how the
+                      degrees you type are read.</span>
+                    <span lang="pt">Fixa a tonalidade em vez de deixar o detector escolher. É ela que decide como os
+                      graus que você digitar são lidos.</span>
+                  </td></tr>
+                  <tr><td>Mode</td><td>
+                    <span lang="en">Major, minor and the modes. Only becomes editable once you have pinned a
+                      <strong>Key</strong> — while the detector is in charge, it reports rather than sets.</span>
+                    <span lang="pt">Maior, menor e os modos. Só fica editável depois que você fixa uma
+                      <strong>Key</strong> — enquanto o detector está no comando, ele informa em vez de definir.</span>
+                  </td></tr>
+                  <tr><td>Arp shape</td><td>
+                    <span lang="en">Up, Down, Up-Down, Down-Up, Converge, Random. Active only on the Arp part.</span>
+                    <span lang="pt">Up, Down, Up-Down, Down-Up, Converge, Random. Ativo só na parte Arp.</span>
+                  </td></tr>
+                  <tr><td>Follow groove</td><td>
+                    <span lang="en">The new part inherits the clip's rhythmic pattern. Turn it off if the clip is a
+                      whole-note pad and you want something that moves.</span>
+                    <span lang="pt">A parte nova herda o padrão rítmico do clipe. Desligue se o clipe for um pad de
+                      semibreves e você quiser algo mexido.</span>
+                  </td></tr>
+                  <tr><td>Stay clear</td><td>
+                    <span lang="en">Keeps the new part out of the register the clip already occupies. This is what
+                      stops a pad from climbing over your lead.</span>
+                    <span lang="pt">Mantém a parte nova fora do registro que o clipe já ocupa. É isso que impede um
+                      pad de subir por cima do seu lead.</span>
+                  </td></tr>
+                  <tr><td>Host sync</td><td>
+                    <span lang="en">Plays along with the DAW transport. Switch it off and <strong>Play</strong> loops
+                      at the clip's own tempo instead.</span>
+                    <span lang="pt">Toca junto com o transporte do DAW. Desligue e o <strong>Play</strong> roda em loop
+                      no andamento do próprio clipe.</span>
+                  </td></tr>
+                  <tr><td>Preview sound</td><td>
+                    <span lang="en">The built-in synth, so you can hear the idea without routing anything. Turn it off
+                      to use the plugin's MIDI output into an instrument of your own.</span>
+                    <span lang="pt">O sintetizador embutido, para ouvir a ideia sem rotear nada. Desligue para usar a
+                      saída MIDI do plugin num instrumento seu.</span>
+                  </td></tr>
+                  <tr><td>Preview level</td><td>
+                    <span lang="en"><code>−40 dB … +6 dB</code>, default <code>−6 dB</code>. Only affects the preview
+                      synth.</span>
+                    <span lang="pt"><code>−40 dB … +6 dB</code>, padrão <code>−6 dB</code>. Afeta só o sintetizador de
+                      preview.</span>
+                  </td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- 7 -->
+          <section id="m-style">
+            <h3><span lang="en">7. Writing in your style</span><span lang="pt">7. Escrever no seu estilo</span></h3>
+            <p>
+              <span lang="en">The button on the left reads <strong>Learn from my library…</strong> until a model is
+                loaded, and <strong>Change my library…</strong> after that. It opens a menu with:</span>
+              <span lang="pt">O botão da esquerda diz <strong>Learn from my library…</strong> até um modelo ser
+                carregado, e <strong>Change my library…</strong> depois disso. Ele abre um menu com:</span>
+            </p>
+            <ul>
+              <li><strong>Scan a MIDI folder…</strong> —
+                <span lang="en">pick a folder and it goes.</span>
+                <span lang="pt">escolha uma pasta e pronto.</span>
+              </li>
+              <li><strong>Scan a folder I already have</strong> —
+                <span lang="en">the usual places a collection lives (the Ableton User Library, <code>~/Music</code>,
+                  each mounted drive), already filtered down to the ones that exist on your machine.</span>
+                <span lang="pt">os lugares onde uma coleção costuma estar (a User Library do Ableton,
+                  <code>~/Music</code>, cada drive montado), já filtrados pelos que existem na sua máquina.</span>
+              </li>
+              <li><strong>Load a .style.json…</strong> —
+                <span lang="en">a model you built elsewhere.</span>
+                <span lang="pt">um modelo que você montou em outro lugar.</span>
+              </li>
+              <li><strong>Forget this library</strong> —
+                <span lang="en">back to what shipped with the plugin.</span>
+                <span lang="pt">volta ao que veio de fábrica com o plugin.</span>
+              </li>
+            </ul>
+            <p>
+              <span lang="en">The scan runs on a low-priority background thread: audio does not stutter and the
+                interface does not freeze. The panel counts up — <code>1234 / 227335</code> — and the button turns
+                into <strong>Stop scanning</strong>. A big collection takes minutes, and whatever it learned up to
+                the moment you stop still counts.</span>
+              <span lang="pt">O scan roda numa thread de segundo plano com prioridade baixa: o áudio não engasga e a
+                interface não trava. O painel vai contando — <code>1234 / 227335</code> — e o botão vira
+                <strong>Stop scanning</strong>. Uma coleção grande leva minutos, e o que já foi aprendido até você
+                parar continua valendo.</span>
+            </p>
+
+            <h4><span lang="en">What it learns</span><span lang="pt">O que ele aprende</span></h4>
+            <ul>
+              <li>
+                <span lang="en">Which sixteenths your bars land on, with velocity and duration per position, kept
+                  separately per role — bass, lead, pluck, chords, arp.</span>
+                <span lang="pt">Em quais semicolcheias os seus compassos caem, com velocity e duração por posição,
+                  guardados separadamente por papel — bass, lead, pluck, chords, arp.</span>
+              </li>
+              <li>
+                <span lang="en">How your lines move, measured in scale steps rather than notes — so it transposes to
+                  any key.</span>
+                <span lang="pt">Como as suas linhas se movem, medido em graus da escala em vez de notas — por isso
+                  transpõe para qualquer tom.</span>
+              </li>
+              <li>
+                <span lang="en">What you play over a root, split by how strong the beat is.</span>
+                <span lang="pt">O que você toca sobre uma fundamental, separado pela força métrica do tempo.</span>
+              </li>
+              <li>
+                <span lang="en">The spacing between the voices of your chords, and which progressions turn up most.</span>
+                <span lang="pt">O espaçamento entre as vozes dos seus acordes, e quais progressões aparecem mais.</span>
+              </li>
+            </ul>
+
+            <div class="callout">
+              <span lang="en"><strong>Nothing leaves your machine, and no phrase is stored.</strong> What ends up in
+                the model file is counts — how often a bar was hit on the seventh sixteenth, how often a step of +2
+                was followed by −1. Learned chord spacings are used as templates and then snapped onto the chord
+                actually playing, so a shape taken from a major chord keeps its width but never drags a major third
+                onto a minor chord.</span>
+              <span lang="pt"><strong>Nada sai da sua máquina, e nenhuma frase é guardada.</strong> O que fica no
+                arquivo do modelo são contagens — quantas vezes um compasso teve ataque na sétima semicolcheia,
+                quantas vezes um passo de +2 foi seguido de −1. Os espaçamentos de acorde aprendidos são usados como
+                molde e depois encaixados no acorde que está tocando, então uma forma tirada de um acorde maior
+                mantém a abertura mas nunca arrasta uma terça maior para cima de um acorde menor.</span>
+            </div>
+
+            <h4><span lang="en">Where the model lives</span><span lang="pt">Onde o modelo fica</span></h4>
+            <p>
+              <span lang="en">The plugin does not save a path to your drive — it saves the model itself, so every new
+                instance in every project opens with it already loaded, even if you move or delete the original
+                folder.</span>
+              <span lang="pt">O plugin não salva um caminho para o seu HD — ele salva o próprio modelo, então toda
+                instância nova, em qualquer projeto, já abre com ele carregado, mesmo que você mova ou apague a pasta
+                original.</span>
+            </p>
+<pre><code>macOS     ~/Library/Application Support/Nowhr Dynamics/Progressions/library.style.json
+Windows   %APPDATA%\Nowhr Dynamics\Progressions\library.style.json</code></pre>
+            <p style="margin-top:1rem">
+              <span lang="en">The <strong>Write in my style</strong> switch turns the model on and off; the
+                <strong>My style</strong> knob sets how much it gets to say.</span>
+              <span lang="pt">A chave <strong>Write in my style</strong> liga e desliga o modelo; o knob
+                <strong>My style</strong> define o quanto ele manda.</span>
+            </p>
+          </section>
+
+          <!-- 8 -->
+          <section id="m-output">
+            <h3><span lang="en">8. Getting it out</span><span lang="pt">8. Tirando o resultado</span></h3>
+            <div class="tbl-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th><span lang="en">Button</span><span lang="pt">Botão</span></th>
+                    <th><span lang="en">What it does</span><span lang="pt">O que faz</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>New idea</td><td>
+                    <span lang="en">Rolls a new seed — same settings, a different idea.</span>
+                    <span lang="pt">Sorteia uma nova semente — mesmos ajustes, outra ideia.</span>
+                  </td></tr>
+                  <tr><td>Play</td><td>
+                    <span lang="en">Auditions the part through the preview synth. With <strong>Host sync</strong> off
+                      it loops at the clip's own tempo.</span>
+                    <span lang="pt">Escuta a parte pelo sintetizador de preview. Com o <strong>Host sync</strong>
+                      desligado, roda em loop no andamento do próprio clipe.</span>
+                  </td></tr>
+                  <tr><td>Reharmonise</td><td>
+                    <span lang="en">Swaps chords for relatives, secondary dominants, tritone substitutions and modal
+                      borrowings, in one click.</span>
+                    <span lang="pt">Troca acordes por relativas, dominantes secundárias, substituições de trítono e
+                      empréstimo modal, com um clique.</span>
+                  </td></tr>
+                  <tr><td>Reset chords</td><td>
+                    <span lang="en">Throws away what you typed and goes back to the chords detected in the clip.</span>
+                    <span lang="pt">Joga fora o que você digitou e volta para os acordes detectados no clipe.</span>
+                  </td></tr>
+                  <tr><td>Save .mid</td><td>
+                    <span lang="en">Writes the current part to a MIDI file.</span>
+                    <span lang="pt">Grava a parte atual num arquivo MIDI.</span>
+                  </td></tr>
+                  <tr><td>Drag MIDI to your DAW</td><td>
+                    <span lang="en">Drag from this box straight onto the timeline. It is the fastest route out.</span>
+                    <span lang="pt">Arraste desta caixa direto para a timeline. É o caminho mais rápido de saída.</span>
+                  </td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p style="margin-top:1.25rem">
+              <span lang="en">The last four stay disabled until there is something generated. And because the seed is
+                saved with the project, reopening a session six months later gives back the exact same notes.</span>
+              <span lang="pt">Os quatro últimos ficam desabilitados até haver algo gerado. E como a semente é salva
+                junto com o projeto, reabrir a sessão seis meses depois devolve exatamente as mesmas notas.</span>
+            </p>
+          </section>
+
+          <!-- 9 -->
+          <section id="m-trouble">
+            <h3><span lang="en">9. If something looks off</span><span lang="pt">9. Se algo parecer errado</span></h3>
+            <div class="tbl-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th><span lang="en">Symptom</span><span lang="pt">Sintoma</span></th>
+                    <th><span lang="en">Try this</span><span lang="pt">Tente isso</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>
+                    <span lang="en">Wrong key detected</span><span lang="pt">Tonalidade errada</span>
+                  </td><td>
+                    <span lang="en">Pin it with <strong>Key</strong> and <strong>Mode</strong>. Relative major and minor
+                      share the same notes, so a short clip can genuinely be either.</span>
+                    <span lang="pt">Fixe com <strong>Key</strong> e <strong>Mode</strong>. Relativa maior e menor têm as
+                      mesmas notas, então um clipe curto pode honestamente ser as duas.</span>
+                  </td></tr>
+                  <tr><td>
+                    <span lang="en">One chord where you know there are four</span>
+                    <span lang="pt">Um acorde só onde você sabe que tem quatro</span>
+                  </td><td>
+                    <span lang="en">Set <strong>Chord changes</strong> to <code>1 per bar</code>.</span>
+                    <span lang="pt">Coloque <strong>Chord changes</strong> em <code>1 per bar</code>.</span>
+                  </td></tr>
+                  <tr><td>
+                    <span lang="en">The new part sits on top of the lead</span>
+                    <span lang="pt">A parte nova fica em cima do lead</span>
+                  </td><td>
+                    <span lang="en">Turn on <strong>Stay clear</strong>, or move it with <strong>Octave</strong>.</span>
+                    <span lang="pt">Ligue o <strong>Stay clear</strong>, ou desloque com o <strong>Octave</strong>.</span>
+                  </td></tr>
+                  <tr><td>
+                    <span lang="en">Everything comes out static</span>
+                    <span lang="pt">Tudo sai parado</span>
+                  </td><td>
+                    <span lang="en">The clip is probably a whole-note pad and <strong>Follow groove</strong> is copying
+                      it. Turn it off and raise <strong>Density</strong>.</span>
+                    <span lang="pt">O clipe provavelmente é um pad de semibreves e o <strong>Follow groove</strong> está
+                      copiando. Desligue e suba a <strong>Density</strong>.</span>
+                  </td></tr>
+                  <tr><td>
+                    <span lang="en">It does not appear in the DAW</span>
+                    <span lang="pt">Não aparece no DAW</span>
+                  </td><td>
+                    <span lang="en">Rescan the plugin folder, and check you are looking under instruments rather than
+                      effects. On macOS, clear the quarantine flag (see the install steps above).</span>
+                    <span lang="pt">Mande reescanear a pasta de plugins, e confira se você está procurando em
+                      instrumentos e não em efeitos. No macOS, limpe a flag de quarentena (veja os passos de instalação
+                      acima).</span>
+                  </td></tr>
+                  <tr><td>
+                    <span lang="en">Something else</span><span lang="pt">Outra coisa</span>
+                  </td><td>
+                    <span lang="en">It is a beta — write to <a href="#" data-email>me</a> with the DAW,
+                      the system and what you did.</span>
+                    <span lang="pt">É um beta — escreva <a href="#" data-email>para mim</a> com o DAW, o
+                      sistema e o que você fez.</span>
+                  </td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap site-footer__inner">
+    <div>
+      <a class="brand" href="index.html" aria-label="Nowhr Dynamics">
+        <img src="assets/img/logo.svg" alt="Nowhr Dynamics" width="104" height="41" style="opacity:.65">
+      </a>
+      <small>
+        <span lang="en">© <span data-year></span> Nowhr Dynamics. All plugins in open beta.</span>
+        <span lang="pt">© <span data-year></span> Nowhr Dynamics. Todos os plugins em beta aberto.</span>
+      </small>
+    </div>
+    <nav>
+      <a href="index.html"><span lang="en">Home</span><span lang="pt">Início</span></a>
+      <a href="grid-frequency.html">Grid Frequency</a>
+      <a href="#" data-repo>GitHub</a>
+      <a href="#" data-email data-email-text>email</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="assets/js/config.js?v=1"></script>
+<script src="assets/js/site.js?v=1"></script>
+</body>
+</html>

@@ -1,0 +1,761 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grid Frequency — Nowhr Dynamics</title>
+<meta name="description" content="Grid Frequency is a VST3 multi-track analyser. Every track's spectrum on one graph, with the bands where two of them collide marked in red. Beta download and full manual.">
+<meta name="theme-color" content="#1b1b1c">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Grid Frequency — Nowhr Dynamics">
+<meta property="og:description" content="One instance per track, one on the master. See every spectrum at once, and exactly where they fight.">
+<meta property="og:image" content="assets/img/grid-conflict.jpg">
+<script>
+(function () {
+  var l;
+  try { l = localStorage.getItem('nowhr:lang'); } catch (e) {}
+  if (l !== 'pt' && l !== 'en') l = /^pt/i.test(navigator.language || '') ? 'pt' : 'en';
+  document.documentElement.setAttribute('data-lang', l);
+  document.documentElement.setAttribute('lang', l === 'pt' ? 'pt-BR' : 'en');
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="assets/css/site.css?v=1">
+</head>
+
+<body class="accent-rose"
+  data-title-en="Grid Frequency — Nowhr Dynamics"
+  data-title-pt="Grid Frequency — Nowhr Dynamics"
+  data-desc-en="Grid Frequency is a VST3 multi-track analyser. Every track's spectrum on one graph, with the bands where two of them collide marked in red. Beta download and full manual."
+  data-desc-pt="O Grid Frequency é um analisador multipista VST3. O espectro de todas as pistas num gráfico só, com as faixas onde duas delas se atropelam marcadas em vermelho. Download do beta e manual completo.">
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="index.html" aria-label="Nowhr Dynamics">
+      <img src="assets/img/logo.svg" alt="Nowhr Dynamics" width="118" height="46">
+    </a>
+    <nav class="site-nav">
+      <a href="progressions.html">Progressions</a>
+      <a href="grid-frequency.html" aria-current="page">Grid Frequency</a>
+      <a href="#manual"><span lang="en">Manual</span><span lang="pt">Manual</span></a>
+      <a href="#beta"><span lang="en">Download</span><span lang="pt">Download</span></a>
+    </nav>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="pt" aria-pressed="false">PT</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============================================================ hero -- -->
+  <section class="hero">
+    <div class="wrap hero__inner">
+      <div class="hero__meta">
+        <span class="badge badge--beta"><span lang="en">Open beta</span><span lang="pt">Beta aberto</span></span>
+        <span class="badge badge--ver"><span data-version>1.0.0 beta</span></span>
+        <span class="badge badge--ver">VST3 · macOS · Windows</span>
+      </div>
+
+      <h1>Grid Frequency</h1>
+
+      <p class="hero__lede">
+        <span lang="en">An analyser that stops looking at one track at a time. Put an instance on each track and
+          one on the master, and every spectrum lands on the same graph — named, coloured, and with the bands
+          where two of them are fighting marked in red.</span>
+        <span lang="pt">Um analisador que para de olhar uma pista por vez. Coloque uma instância em cada pista e
+          uma no master, e todos os espectros caem no mesmo gráfico — com nome, cor, e as faixas onde duas delas
+          estão brigando marcadas em vermelho.</span>
+      </p>
+
+      <div class="btn-row">
+        <a class="btn btn--rose" href="#beta">
+          <span lang="en">Get the beta</span><span lang="pt">Pegar o beta</span>
+        </a>
+        <a class="btn btn--ghost" href="#manual">
+          <span lang="en">Read the manual</span><span lang="pt">Ler o manual</span>
+        </a>
+      </div>
+
+      <figure class="hero-shot">
+        <div class="shot">
+          <img src="assets/img/grid-master.jpg" width="1800" height="1095" fetchpriority="high"
+               alt="Grid Frequency in master view: four track spectra overlaid on one graph, with the track list on the right.">
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ======================================================== features -- -->
+  <section id="features">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="section-label"><span lang="en">What it does</span><span lang="pt">O que ele faz</span></p>
+        <h2>
+          <span lang="en">Masking is a relationship, so look at it as one</span>
+          <span lang="pt">Mascaramento é uma relação, então olhe para ele como uma</span>
+        </h2>
+        <p>
+          <span lang="en">A single-track analyser can only ever tell you what one track is doing. The problem you
+            are actually solving lives between two of them — and that is the thing Grid Frequency draws.</span>
+          <span lang="pt">Um analisador de uma pista só consegue dizer o que aquela pista está fazendo. O problema
+            que você está realmente resolvendo mora entre duas delas — e é isso que o Grid Frequency desenha.</span>
+        </p>
+      </div>
+
+      <div class="feature">
+        <div class="feature__body">
+          <h3>
+            <span lang="en">It names the pair and the band</span>
+            <span lang="pt">Ele diz o par e a faixa</span>
+          </h3>
+          <p>
+            <span lang="en">When two tracks pile up in the same region, the range is shaded red on the graph and a
+              chip appears underneath with both names and the exact span — <code>BASS × KICK, 90–107 Hz</code>. No
+              hunting, no soloing back and forth: you know which two, and you know where.</span>
+            <span lang="pt">Quando duas pistas se acumulam na mesma região, a faixa fica sombreada de vermelho no
+              gráfico e um chip aparece embaixo com os dois nomes e o intervalo exato —
+              <code>BASS × KICK, 90–107 Hz</code>. Sem caçar, sem ficar solando de um lado para o outro: você sabe
+              quais duas, e sabe onde.</span>
+          </p>
+        </div>
+        <div class="feature__media">
+          <div class="shot">
+            <img src="assets/img/grid-conflict.jpg" width="1800" height="1090" loading="lazy"
+                 alt="Grid Frequency with the BASS curve highlighted and a BASS × KICK conflict flagged at 90 to 107 Hz.">
+          </div>
+        </div>
+      </div>
+
+      <div class="feature feature--flip">
+        <div class="feature__body">
+          <h3>
+            <span lang="en">One instance per track, one picture</span>
+            <span lang="pt">Uma instância por pista, um quadro só</span>
+          </h3>
+          <p>
+            <span lang="en">Every instance knows about every other one, and the header counts them, so you can
+              tell at a glance whether the session is fully wired up. Open the console on any track and you get the
+              same graph from that track's point of view; open the one on the master and you get the whole mix.</span>
+            <span lang="pt">Cada instância conhece todas as outras, e o cabeçalho conta quantas são, então dá para
+              ver de relance se a sessão está toda ligada. Abra o console de qualquer pista e você tem o mesmo
+              gráfico do ponto de vista dela; abra o do master e você tem a mixagem inteira.</span>
+          </p>
+        </div>
+        <div class="feature__media">
+          <div class="shot">
+            <img src="assets/img/grid-consoles.jpg" width="1800" height="992" loading="lazy"
+                 alt="Three Grid Frequency windows open at once in Ableton Live: two track consoles and the master view.">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ============================================================ beta -- -->
+  <section id="beta">
+    <div class="wrap wrap--narrow">
+
+      <div id="beta-gate" class="gate">
+        <p class="section-label"><span lang="en">Beta access</span><span lang="pt">Acesso ao beta</span></p>
+        <h2>
+          <span lang="en">Get the Grid Frequency beta</span>
+          <span lang="pt">Pegue o beta do Grid Frequency</span>
+        </h2>
+        <p class="gate__sub">
+          <span lang="en">Leave your details and the download links appear right here. I use them to send you
+            beta updates and nothing else.</span>
+          <span lang="pt">Deixe seus dados e os links de download aparecem aqui mesmo. Eu uso isso para te
+            avisar das atualizações do beta e mais nada.</span>
+        </p>
+
+        <form id="beta-form" data-plugin="grid-frequency" data-plugin-label="Grid Frequency" novalidate>
+          <div class="field-grid">
+            <div class="field">
+              <label for="g-name"><span lang="en">Name</span><span lang="pt">Nome</span></label>
+              <input id="g-name" name="name" type="text" required autocomplete="name"
+                     data-ph-en="Your name" data-ph-pt="Seu nome" placeholder="Your name">
+            </div>
+            <div class="field">
+              <label for="g-email">E-mail</label>
+              <input id="g-email" name="email" type="email" required autocomplete="email"
+                     placeholder="you@example.com">
+            </div>
+            <div class="field field--wide">
+              <label for="g-daw"><span lang="en">Which DAW do you use?</span><span lang="pt">Qual DAW você usa?</span></label>
+              <select id="g-daw" name="daw" required>
+                <option value="" data-en="Select…" data-pt="Selecione…">Select…</option>
+                <option value="Ableton Live">Ableton Live</option>
+                <option value="FL Studio">FL Studio</option>
+                <option value="Logic Pro">Logic Pro</option>
+                <option value="Cubase">Cubase</option>
+                <option value="Studio One">Studio One</option>
+                <option value="Bitwig">Bitwig</option>
+                <option value="Reaper">Reaper</option>
+                <option value="Pro Tools">Pro Tools</option>
+                <option value="Other" data-en="Other" data-pt="Outro">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="hp" aria-hidden="true">
+            <label for="g-company">Company</label>
+            <input id="g-company" name="company" type="text" tabindex="-1" autocomplete="off">
+          </div>
+
+          <label class="consent">
+            <input type="checkbox" name="consent" required>
+            <span>
+              <span lang="en">You can email me about the Grid Frequency beta. No newsletter, no third parties.</span>
+              <span lang="pt">Pode me mandar e-mail sobre o beta do Grid Frequency. Sem newsletter, sem terceiros.</span>
+            </span>
+          </label>
+
+          <div class="btn-row">
+            <button class="btn btn--rose btn--block" type="submit">
+              <span lang="en">Show me the downloads</span><span lang="pt">Mostrar os downloads</span>
+            </button>
+          </div>
+
+          <p class="form-note">
+            <span lang="en">The plugin itself never sends anything anywhere — this form is the one place your
+              details are asked for.</span>
+            <span lang="pt">O plugin em si nunca manda nada para lugar nenhum — este formulário é o único lugar
+              onde seus dados são pedidos.</span>
+          </p>
+
+          <p class="form-error" id="beta-error" hidden>
+            <span lang="en">That did not go through. Check your connection and try again.</span>
+            <span lang="pt">Não deu certo. Confira sua conexão e tente de novo.</span>
+          </p>
+        </form>
+      </div>
+
+      <div id="beta-downloads" hidden>
+        <div class="gate">
+          <div class="dl-head">
+            <span class="dl-check" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg>
+            </span>
+            <h2><span lang="en">You're in</span><span lang="pt">Pronto</span></h2>
+          </div>
+          <p class="gate__sub">
+            <span lang="en">Grid Frequency <span data-version>1.0.0 beta</span>. Grab the build for your system,
+              then follow the three steps below.</span>
+            <span lang="pt">Grid Frequency <span data-version>1.0.0 beta</span>. Pegue a versão do seu sistema e
+              siga os três passos abaixo.</span>
+          </p>
+
+          <div class="dl-grid">
+            <a class="dl-tile" data-dl="mac" href="#" download>
+              <span class="dl-tile__os">macOS</span>
+              <span class="dl-tile__meta"></span>
+            </a>
+            <a class="dl-tile" data-dl="win" href="#" download>
+              <span class="dl-tile__os">Windows</span>
+              <span class="dl-tile__meta"></span>
+            </a>
+          </div>
+
+          <div class="tabs" role="tablist">
+            <button type="button" role="tab" data-os="mac" aria-controls="inst-mac" aria-selected="true">macOS</button>
+            <button type="button" role="tab" data-os="win" aria-controls="inst-win" aria-selected="false">Windows</button>
+          </div>
+
+          <div class="tabpanel" id="inst-mac" role="tabpanel">
+            <ol class="steps">
+              <li>
+                <span lang="en">Unzip the download. You get <strong>Grid Frequency.vst3</strong>.</span>
+                <span lang="pt">Descompacte o download. Você recebe o <strong>Grid Frequency.vst3</strong>.</span>
+              </li>
+              <li>
+                <span lang="en">Copy it into <code>~/Library/Audio/Plug-Ins/VST3/Nowhr Dynamics/</code>. Create the
+                  <code>Nowhr Dynamics</code> folder if it is not there — the DAW scans the VST3 folder
+                  recursively, so the subfolder only keeps things tidy.</span>
+                <span lang="pt">Copie para <code>~/Library/Audio/Plug-Ins/VST3/Nowhr Dynamics/</code>. Crie a pasta
+                  <code>Nowhr Dynamics</code> se ela não existir — o DAW varre a pasta VST3 recursivamente, então
+                  a subpasta só serve para organizar.</span>
+              </li>
+              <li>
+                <span lang="en">Rescan your plugins in the DAW. Grid Frequency shows up as an
+                  <strong>audio effect</strong>.</span>
+                <span lang="pt">Mande o DAW reescanear os plugins. O Grid Frequency aparece como
+                  <strong>efeito de áudio</strong>.</span>
+              </li>
+            </ol>
+            <div class="callout">
+              <span lang="en"><strong>Beta builds are not notarised.</strong> If macOS refuses to load it, clear the
+                quarantine flag once in Terminal:</span>
+              <span lang="pt"><strong>As versões beta não são notarizadas.</strong> Se o macOS se recusar a
+                carregar, limpe a flag de quarentena uma vez no Terminal:</span>
+              <pre><code>xattr -dr com.apple.quarantine ~/Library/Audio/Plug-Ins/VST3/Nowhr\ Dynamics/Grid\ Frequency.vst3</code></pre>
+            </div>
+          </div>
+
+          <div class="tabpanel" id="inst-win" role="tabpanel" hidden>
+            <ol class="steps">
+              <li>
+                <span lang="en">Unzip the download. You get <strong>Grid Frequency.vst3</strong>.</span>
+                <span lang="pt">Descompacte o download. Você recebe o <strong>Grid Frequency.vst3</strong>.</span>
+              </li>
+              <li>
+                <span lang="en">Copy it into <code>C:\Program Files\Common Files\VST3\Nowhr Dynamics\</code>.
+                  Create the <code>Nowhr Dynamics</code> folder if it is not there.</span>
+                <span lang="pt">Copie para <code>C:\Program Files\Common Files\VST3\Nowhr Dynamics\</code>. Crie a
+                  pasta <code>Nowhr Dynamics</code> se ela não existir.</span>
+              </li>
+              <li>
+                <span lang="en">Rescan your plugins in the DAW. Grid Frequency shows up as an
+                  <strong>audio effect</strong>.</span>
+                <span lang="pt">Mande o DAW reescanear os plugins. O Grid Frequency aparece como
+                  <strong>efeito de áudio</strong>.</span>
+              </li>
+            </ol>
+            <div class="callout">
+              <span lang="en">Copying into <code>Program Files</code> asks for administrator rights. If you would
+                rather not give them, any folder your DAW is set to scan works just as well.</span>
+              <span lang="pt">Copiar para <code>Program Files</code> pede permissão de administrador. Se preferir
+                não dar, qualquer pasta que o seu DAW esteja configurado para varrer serve igual.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ========================================================== manual -- -->
+  <section id="manual">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="section-label"><span lang="en">Mini manual</span><span lang="pt">Mini manual</span></p>
+        <h2>
+          <span lang="en">Setting it up, and reading it</span>
+          <span lang="pt">Como montar, e como ler</span>
+        </h2>
+      </div>
+
+      <div class="manual">
+        <nav class="manual__toc" aria-label="Manual contents">
+          <ol>
+            <li><a href="#g-setup"><span lang="en">1. Setting it up</span><span lang="pt">1. Montando</span></a></li>
+            <li><a href="#g-graph"><span lang="en">2. Reading the graph</span><span lang="pt">2. Lendo o gráfico</span></a></li>
+            <li><a href="#g-tracks"><span lang="en">3. The track list</span><span lang="pt">3. A lista de pistas</span></a></li>
+            <li><a href="#g-conflicts"><span lang="en">4. Conflicts</span><span lang="pt">4. Conflitos</span></a></li>
+            <li><a href="#g-display"><span lang="en">5. The display controls</span><span lang="pt">5. Os controles de exibição</span></a></li>
+            <li><a href="#g-workflow"><span lang="en">6. A way to work</span><span lang="pt">6. Um jeito de trabalhar</span></a></li>
+            <li><a href="#g-trouble"><span lang="en">7. If something looks off</span><span lang="pt">7. Se algo parecer errado</span></a></li>
+          </ol>
+        </nav>
+
+        <div class="manual__body">
+
+          <!-- 1 -->
+          <section id="g-setup">
+            <h3><span lang="en">1. Setting it up</span><span lang="pt">1. Montando</span></h3>
+            <p>
+              <span lang="en">Grid Frequency is an <strong>audio effect</strong>, and it only earns its keep when
+                there is more than one of it. The layout it is built for:</span>
+              <span lang="pt">O Grid Frequency é um <strong>efeito de áudio</strong>, e ele só se paga quando há mais
+                de um. O arranjo para o qual ele foi feito:</span>
+            </p>
+            <ol class="steps">
+              <li>
+                <span lang="en">Put one instance at the <strong>end of each track</strong> you care about — kick,
+                  bass, synths, hats. It leaves the audio alone; it only listens.</span>
+                <span lang="pt">Coloque uma instância no <strong>fim de cada pista</strong> que te interessa — kick,
+                  baixo, sintetizadores, hats. Ele não mexe no áudio; só escuta.</span>
+              </li>
+              <li>
+                <span lang="en">Put one on the <strong>master bus</strong>. That one opens in
+                  <strong>MASTER</strong> mode and shows every track at once; the ones on the tracks open in
+                  <strong>CONSOLE</strong> mode.</span>
+                <span lang="pt">Coloque uma no <strong>master</strong>. Essa abre em modo <strong>MASTER</strong> e
+                  mostra todas as pistas de uma vez; as das pistas abrem em modo <strong>CONSOLE</strong>.</span>
+              </li>
+              <li>
+                <span lang="en">Name each console — the field next to the mode badge — and give it a colour. Those
+                  are the names and colours you will read on every graph, so name them the way you think:
+                  <code>KICK</code>, <code>BASS</code>, <code>SYNTH LOOP</code>, <code>HiHats</code>.</span>
+                <span lang="pt">Dê nome a cada console — o campo ao lado do selo de modo — e escolha uma cor. São
+                  esses nomes e cores que você vai ler em todo gráfico, então nomeie do jeito que você pensa:
+                  <code>KICK</code>, <code>BASS</code>, <code>SYNTH LOOP</code>, <code>HiHats</code>.</span>
+              </li>
+            </ol>
+            <p style="margin-top:1.25rem">
+              <span lang="en">The header shows how many instances are talking to each other —
+                <code>5 instâncias</code> in the shots on this page. If that number is lower than the number of
+                consoles you placed, one of them is on a track the transport is not feeding.</span>
+              <span lang="pt">O cabeçalho mostra quantas instâncias estão conversando entre si —
+                <code>5 instâncias</code> nos prints desta página. Se esse número for menor que o de consoles que
+                você colocou, algum deles está numa pista que o transporte não está alimentando.</span>
+            </p>
+            <div class="callout">
+              <span lang="en"><strong>The beta interface is in Portuguese.</strong> Control names below are given as
+                they appear on screen, with the English meaning next to them.</span>
+              <span lang="pt"><strong>A interface do beta está em português.</strong> Os nomes dos controles abaixo
+                são os que aparecem na tela.</span>
+            </div>
+          </section>
+
+          <!-- 2 -->
+          <section id="g-graph">
+            <h3><span lang="en">2. Reading the graph</span><span lang="pt">2. Lendo o gráfico</span></h3>
+            <p>
+              <span lang="en">Frequency runs left to right, <code>20 Hz</code> to <code>20 kHz</code>. Level runs top
+                to bottom, <code>0 dB</code> down to the bottom of the window. Every track is one curve, in its own
+                colour, all on the same axes — which is the whole point: you are comparing them, not inspecting one
+                of them.</span>
+              <span lang="pt">A frequência vai da esquerda para a direita, de <code>20 Hz</code> a
+                <code>20 kHz</code>. O nível vai de cima para baixo, de <code>0 dB</code> até o fundo da janela.
+                Cada pista é uma curva, na cor dela, todas nos mesmos eixos — que é a ideia toda: você está
+                comparando, não inspecionando uma só.</span>
+            </p>
+            <ul>
+              <li>
+                <span lang="en">The track whose window you are in is drawn <strong>thick and filled</strong>; the
+                  others sit behind it, dimmer. That is how you keep your bearings with six curves on screen.</span>
+                <span lang="pt">A pista da janela em que você está é desenhada <strong>grossa e preenchida</strong>;
+                  as outras ficam atrás, mais apagadas. É assim que você não se perde com seis curvas na tela.</span>
+              </li>
+              <li>
+                <span lang="en">Hover anywhere on the graph and you get a readout: the frequency, the nearest
+                  <strong>note name</strong> with its cents offset — <code>7.1 kHz · A8+6</code> — and every track's
+                  level at that exact point, sorted loudest first.</span>
+                <span lang="pt">Passe o mouse em qualquer ponto do gráfico e aparece a leitura: a frequência, o
+                  <strong>nome da nota</strong> mais próxima com o desvio em cents — <code>7.1 kHz · A8+6</code> — e
+                  o nível de cada pista naquele ponto exato, do mais alto para o mais baixo.</span>
+              </li>
+              <li>
+                <span lang="en">The note name is there because tuning problems and masking problems look identical on
+                  a plain analyser. If your bass peak reads as a note that is not in the key, that is a different
+                  conversation from a peak that is simply too loud.</span>
+                <span lang="pt">O nome da nota está ali porque problema de afinação e problema de mascaramento são
+                  idênticos num analisador comum. Se o pico do seu baixo cai numa nota que não é da tonalidade, essa
+                  é outra conversa, diferente de um pico que só está alto demais.</span>
+              </li>
+            </ul>
+          </section>
+
+          <!-- 3 -->
+          <section id="g-tracks">
+            <h3><span lang="en">3. The track list</span><span lang="pt">3. A lista de pistas</span></h3>
+            <p>
+              <span lang="en">Down the right-hand side, one row per instance. Each row carries:</span>
+              <span lang="pt">Na lateral direita, uma linha por instância. Cada linha traz:</span>
+            </p>
+            <div class="tbl-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th><span lang="en">Element</span><span lang="pt">Elemento</span></th>
+                    <th><span lang="en">What it is</span><span lang="pt">O que é</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td><span lang="en">Colour chip</span><span lang="pt">Chip de cor</span></td><td>
+                    <span lang="en">The colour that track's curve is drawn in. Set it on that track's console.</span>
+                    <span lang="pt">A cor com que a curva daquela pista é desenhada. Definida no console da pista.</span>
+                  </td></tr>
+                  <tr><td><span lang="en">Name</span><span lang="pt">Nome</span></td><td>
+                    <span lang="en">What you typed on that console. The row for the window you are in is shown in
+                      bold.</span>
+                    <span lang="pt">O que você digitou naquele console. A linha da janela em que você está aparece em
+                      negrito.</span>
+                  </td></tr>
+                  <tr><td><span lang="en">Level</span><span lang="pt">Nível</span></td><td>
+                    <span lang="en">That track's current level, live. A row reading <code>--</code> is a track that is
+                      not playing anything right now.</span>
+                    <span lang="pt">O nível atual da pista, ao vivo. Uma linha marcando <code>--</code> é uma pista que
+                      não está tocando nada no momento.</span>
+                  </td></tr>
+                  <tr><td><span lang="en">Eye</span><span lang="pt">Olho</span></td><td>
+                    <span lang="en">Show or hide that curve. With eight tracks running, hiding the four you are not
+                      thinking about is what makes the graph readable again.</span>
+                    <span lang="pt">Mostra ou esconde aquela curva. Com oito pistas rodando, esconder as quatro em que
+                      você não está pensando é o que torna o gráfico legível de novo.</span>
+                  </td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p style="margin-top:1.25rem">
+              <span lang="en">On a track console, <strong>Ocultar</strong> (hide) and <strong>Outras faixas</strong>
+                (other tracks) do the same job in one press: drop this track's curve out of the picture, or stop
+                drawing everyone else's so you are left alone with your own.</span>
+              <span lang="pt">Num console de pista, <strong>Ocultar</strong> e <strong>Outras faixas</strong> fazem o
+                mesmo trabalho num toque só: tirar a curva desta pista do quadro, ou parar de desenhar a das outras
+                para você ficar sozinho com a sua.</span>
+            </p>
+          </section>
+
+          <!-- 4 -->
+          <section id="g-conflicts">
+            <h3><span lang="en">4. Conflicts</span><span lang="pt">4. Conflitos</span></h3>
+            <p>
+              <span lang="en">This is the part a normal analyser cannot do. When two tracks are both putting
+                significant energy into the same narrow band, Grid Frequency shades that band red on the graph and
+                writes a chip underneath naming both tracks and the range:</span>
+              <span lang="pt">Esta é a parte que um analisador comum não faz. Quando duas pistas estão colocando
+                energia significativa na mesma faixa estreita, o Grid Frequency sombreia essa faixa de vermelho no
+                gráfico e escreve um chip embaixo com o nome das duas e o intervalo:</span>
+            </p>
+<pre><code>BASS  x  KICK
+90 - 107 Hz</code></pre>
+            <p style="margin-top:1rem">
+              <span lang="en">When nothing is stepping on anything else, the strip reads
+                <code>Sem sobreposições relevantes no momento</code> — no relevant overlaps right now. Two things
+                are worth taking from that wording: it is about <em>this</em> moment, so it changes as the
+                arrangement changes; and <em>relevant</em> is set by you, through
+                <strong>Sensib.</strong> and <strong>Piso</strong> below.</span>
+              <span lang="pt">Quando nada está pisando em nada, a faixa diz
+                <code>Sem sobreposições relevantes no momento</code>. Duas coisas valem tirar dessa frase: é sobre
+                <em>este</em> momento, então muda conforme o arranjo muda; e o que é <em>relevante</em> quem define é
+                você, pelos controles <strong>Sensib.</strong> e <strong>Piso</strong> abaixo.</span>
+            </p>
+            <p>
+              <span lang="en">The <strong>Conflitos</strong> button turns the whole detection on and off. Leave it on
+                while you are balancing, turn it off when you just want to look at spectra without the red.</span>
+              <span lang="pt">O botão <strong>Conflitos</strong> liga e desliga a detecção inteira. Deixe ligado
+                enquanto você equilibra, desligue quando quiser só olhar os espectros sem o vermelho.</span>
+            </p>
+            <div class="callout">
+              <span lang="en">A flagged band is information, not an instruction. Kick and bass overlapping around
+                90 Hz is how most dance records are built — the question is which of the two you want to own that
+                range, and Grid Frequency tells you where the argument is happening so you can decide.</span>
+              <span lang="pt">Uma faixa marcada é informação, não ordem. Kick e baixo se sobrepondo em torno de 90 Hz
+                é como a maioria dos discos de dança é feita — a pergunta é qual dos dois você quer que domine
+                aquela região, e o Grid Frequency diz onde a discussão está acontecendo para você decidir.</span>
+            </div>
+          </section>
+
+          <!-- 5 -->
+          <section id="g-display">
+            <h3><span lang="en">5. The display controls</span><span lang="pt">5. Os controles de exibição</span></h3>
+            <p>
+              <span lang="en">Along the bottom of every window, the same row in master and console alike.</span>
+              <span lang="pt">Na parte de baixo de toda janela, a mesma linha no master e nos consoles.</span>
+            </p>
+            <div class="tbl-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th><span lang="en">Control</span><span lang="pt">Controle</span></th>
+                    <th><span lang="en">Default</span><span lang="pt">Padrão</span></th>
+                    <th><span lang="en">What it changes</span><span lang="pt">O que muda</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>ESCALA</td><td><code>Logarítmica</code></td><td>
+                    <span lang="en">How the frequency axis is spaced. Logarithmic gives every octave the same width,
+                      which is how hearing works and what you want almost always.</span>
+                    <span lang="pt">Como o eixo de frequência é distribuído. Logarítmica dá a mesma largura a cada
+                      oitava, que é como a audição funciona e o que você quer quase sempre.</span>
+                  </td></tr>
+                  <tr><td>INCLINAÇÃO</td><td><code>0 dB/oit</code></td><td>
+                    <span lang="en">Tilt. Real music falls off with frequency, so at <code>0 dB/oct</code> the highs
+                      always look weak. Adding tilt (the usual choices are 3 or 4.5 dB/oct) straightens a
+                      well-balanced mix into a roughly flat line, which makes anything sticking out obvious.</span>
+                    <span lang="pt">Inclinação. Música real cai conforme a frequência sobe, então em
+                      <code>0 dB/oit</code> os agudos sempre parecem fracos. Adicionando inclinação (as escolhas
+                      comuns são 3 ou 4,5 dB/oit) uma mixagem equilibrada vira quase uma reta, e aí o que sobra
+                      salta aos olhos.</span>
+                  </td></tr>
+                  <tr><td>VELOCIDADE</td><td><code>Média</code></td><td>
+                    <span lang="en">How fast the curves react. Fast follows transients and jumps around; slow averages
+                      into something you can actually read. Medium is the compromise.</span>
+                    <span lang="pt">Quão rápido as curvas reagem. Rápido acompanha transientes e pula muito; lento
+                      calcula uma média que dá para ler. Média é o meio-termo.</span>
+                  </td></tr>
+                  <tr><td>SENSIB.</td><td><code>6.0 dB</code></td><td>
+                    <span lang="en">How much overlap counts as a conflict. Lower it and only serious collisions get
+                      flagged; raise it and the plugin gets fussier.</span>
+                    <span lang="pt">Quanta sobreposição conta como conflito. Abaixe e só colisões sérias são marcadas;
+                      suba e o plugin fica mais exigente.</span>
+                  </td></tr>
+                  <tr><td>PISO</td><td><code>−62.0 dB</code></td><td>
+                    <span lang="en">The floor below which signal is ignored. This is what keeps room tone, reverb tails
+                      and bleed from being reported as a conflict.</span>
+                    <span lang="pt">O piso abaixo do qual o sinal é ignorado. É o que impede que ruído de sala, cauda de
+                      reverb e vazamento sejam reportados como conflito.</span>
+                  </td></tr>
+                  <tr><td>TOPO</td><td><code>0 dB</code></td><td>
+                    <span lang="en">The level at the top of the window.</span>
+                    <span lang="pt">O nível no topo da janela.</span>
+                  </td></tr>
+                  <tr><td>ALCANCE</td><td><code>90 dB</code></td><td>
+                    <span lang="en">How many dB the window covers from top to bottom. Together with TOPO this frames
+                      the vertical axis — narrow it to magnify small differences, widen it to see quiet tails.</span>
+                    <span lang="pt">Quantos dB a janela cobre de cima a baixo. Junto com o TOPO, isso enquadra o eixo
+                      vertical — estreite para ampliar diferenças pequenas, alargue para ver caudas baixas.</span>
+                  </td></tr>
+                  <tr><td>Preencher</td><td>—</td><td>
+                    <span lang="en">Fill. Shades the area under each curve instead of drawing the line alone. Good for
+                      two or three tracks, unreadable for eight.</span>
+                    <span lang="pt">Preenche a área embaixo de cada curva em vez de desenhar só a linha. Bom para duas
+                      ou três pistas, ilegível para oito.</span>
+                  </td></tr>
+                  <tr><td>Conflitos</td><td>—</td><td>
+                    <span lang="en">Turns conflict detection and the red bands on and off.</span>
+                    <span lang="pt">Liga e desliga a detecção de conflito e as faixas vermelhas.</span>
+                  </td></tr>
+                  <tr><td>Congelar</td><td>—</td><td>
+                    <span lang="en">Freeze, top right. Holds the picture still so you can measure it, read the chips,
+                      or compare against what you get after an EQ move.</span>
+                    <span lang="pt">Congela, no canto superior direito. Segura o quadro parado para você medir, ler os
+                      chips, ou comparar com o que aparece depois de um movimento de EQ.</span>
+                  </td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- 6 -->
+          <section id="g-workflow">
+            <h3><span lang="en">6. A way to work</span><span lang="pt">6. Um jeito de trabalhar</span></h3>
+            <ol class="steps">
+              <li>
+                <span lang="en">Loop the busiest eight bars of the track — the drop, the last chorus, whatever has
+                  everything playing at once. Conflicts are about density, so analyse the dense part.</span>
+                <span lang="pt">Faça loop dos oito compassos mais cheios da música — o drop, o último refrão, o que
+                  tiver tudo tocando junto. Conflito é sobre densidade, então analise a parte densa.</span>
+              </li>
+              <li>
+                <span lang="en">Open the master view and let it run. Set <strong>INCLINAÇÃO</strong> to 3 dB/oct so a
+                  balanced mix reads flat, then look at the overall shape before looking at any detail.</span>
+                <span lang="pt">Abra a visão master e deixe rodar. Coloque a <strong>INCLINAÇÃO</strong> em 3 dB/oit
+                  para uma mixagem equilibrada ficar reta, e olhe a forma geral antes de olhar qualquer detalhe.</span>
+              </li>
+              <li>
+                <span lang="en">Read the conflict chips. Take the lowest band first — low-frequency collisions eat the
+                  most headroom, and fixing one often clears two others further up.</span>
+                <span lang="pt">Leia os chips de conflito. Comece pela faixa mais grave — colisões nos graves comem mais
+                  headroom, e resolver uma costuma limpar outras duas mais acima.</span>
+              </li>
+              <li>
+                <span lang="en">Decide who owns the band, then make the move on the <em>other</em> track: a narrow cut,
+                  a high-pass, a sidechain, or simply a different sound. Grid Frequency does not do EQ — it tells you
+                  where to point yours.</span>
+                <span lang="pt">Decida quem manda naquela faixa, e faça o movimento na <em>outra</em> pista: um corte
+                  estreito, um high-pass, um sidechain, ou simplesmente outro som. O Grid Frequency não faz EQ — ele
+                  diz para onde apontar o seu.</span>
+              </li>
+              <li>
+                <span lang="en"><strong>Congelar</strong> before and after, and compare. It is the cheapest way to
+                  check that the move did what you thought it did.</span>
+                <span lang="pt">Use o <strong>Congelar</strong> antes e depois, e compare. É o jeito mais barato de
+                  conferir se o movimento fez o que você achou que fez.</span>
+              </li>
+            </ol>
+          </section>
+
+          <!-- 7 -->
+          <section id="g-trouble">
+            <h3><span lang="en">7. If something looks off</span><span lang="pt">7. Se algo parecer errado</span></h3>
+            <div class="tbl-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th><span lang="en">Symptom</span><span lang="pt">Sintoma</span></th>
+                    <th><span lang="en">Try this</span><span lang="pt">Tente isso</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>
+                    <span lang="en">A track is missing from the list</span>
+                    <span lang="pt">Falta uma pista na lista</span>
+                  </td><td>
+                    <span lang="en">Check the instance count in the header against how many consoles you placed. A
+                      console on a muted or frozen track has nothing to report.</span>
+                    <span lang="pt">Compare a contagem de instâncias no cabeçalho com quantos consoles você colocou. Um
+                      console numa pista mutada ou congelada não tem o que reportar.</span>
+                  </td></tr>
+                  <tr><td>
+                    <span lang="en">Every band is flagged red</span>
+                    <span lang="pt">Todas as faixas ficam vermelhas</span>
+                  </td><td>
+                    <span lang="en">Lower <strong>SENSIB.</strong> and raise <strong>PISO</strong>. The defaults are a
+                      starting point, not a verdict.</span>
+                    <span lang="pt">Abaixe a <strong>SENSIB.</strong> e suba o <strong>PISO</strong>. Os padrões são um
+                      ponto de partida, não um veredito.</span>
+                  </td></tr>
+                  <tr><td>
+                    <span lang="en">Nothing is ever flagged</span>
+                    <span lang="pt">Nunca marca nada</span>
+                  </td><td>
+                    <span lang="en">Make sure <strong>Conflitos</strong> is on, that the transport is running, and that
+                      you are looking at a busy section rather than an intro.</span>
+                    <span lang="pt">Confira se <strong>Conflitos</strong> está ligado, se o transporte está rodando, e se
+                      você está olhando uma parte cheia e não uma intro.</span>
+                  </td></tr>
+                  <tr><td>
+                    <span lang="en">The highs always look weak</span>
+                    <span lang="pt">Os agudos sempre parecem fracos</span>
+                  </td><td>
+                    <span lang="en">That is what real music looks like at <code>0 dB/oit</code>. Add tilt with
+                      <strong>INCLINAÇÃO</strong>.</span>
+                    <span lang="pt">É assim que música de verdade aparece em <code>0 dB/oit</code>. Adicione inclinação
+                      com a <strong>INCLINAÇÃO</strong>.</span>
+                  </td></tr>
+                  <tr><td>
+                    <span lang="en">The graph is unreadable</span>
+                    <span lang="pt">O gráfico está ilegível</span>
+                  </td><td>
+                    <span lang="en">Turn <strong>Preencher</strong> off and hide the tracks you are not working on with
+                      the eye icons.</span>
+                    <span lang="pt">Desligue o <strong>Preencher</strong> e esconda com os olhos as pistas em que você
+                      não está trabalhando.</span>
+                  </td></tr>
+                  <tr><td>
+                    <span lang="en">Something else</span><span lang="pt">Outra coisa</span>
+                  </td><td>
+                    <span lang="en">It is a beta — write to <a href="#" data-email>me</a> with the DAW, the system and
+                      what you did.</span>
+                    <span lang="pt">É um beta — escreva <a href="#" data-email>para mim</a> com o DAW, o sistema e o que
+                      você fez.</span>
+                  </td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap site-footer__inner">
+    <div>
+      <a class="brand" href="index.html" aria-label="Nowhr Dynamics">
+        <img src="assets/img/logo.svg" alt="Nowhr Dynamics" width="104" height="41" style="opacity:.65">
+      </a>
+      <small>
+        <span lang="en">© <span data-year></span> Nowhr Dynamics. All plugins in open beta.</span>
+        <span lang="pt">© <span data-year></span> Nowhr Dynamics. Todos os plugins em beta aberto.</span>
+      </small>
+    </div>
+    <nav>
+      <a href="index.html"><span lang="en">Home</span><span lang="pt">Início</span></a>
+      <a href="progressions.html">Progressions</a>
+      <a href="#" data-repo>GitHub</a>
+      <a href="#" data-email data-email-text>email</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="assets/js/config.js?v=1"></script>
+<script src="assets/js/site.js?v=1"></script>
+</body>
+</html>

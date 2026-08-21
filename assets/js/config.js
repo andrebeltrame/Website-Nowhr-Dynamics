@@ -78,5 +78,14 @@ window.NOWHR = {
   /* ------------------------------------------------------------------ */
   /*  3. Contact                                                         */
   /* ------------------------------------------------------------------ */
-  email: 'andrebeltrame@gmail.com'
+  email: 'andrebeltrame@gmail.com',
+
+  /*  Beta support. `whatsapp` is digits only, country code first, no plus
+   *  sign and no punctuation — that is the format wa.me expects. `display` is
+   *  what a person reads.
+   */
+  support: {
+    whatsapp: '5541995299700',
+    display:  '+55 41 99529-9700'
+  }
 };

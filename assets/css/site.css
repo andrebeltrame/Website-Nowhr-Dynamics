@@ -579,6 +579,52 @@ figcaption {
 .dl-tile__os { font: 600 1.02rem/1.3 var(--font-display); }
 .dl-tile__meta { font: 400 0.82rem/1.4 var(--font-mono); color: var(--ink-faint); }
 
+/* ------------------------------------------------------ beta support ----- */
+
+.support {
+  display: grid;
+  gap: 1rem 1.25rem;
+  align-items: start;
+  grid-template-columns: auto minmax(0, 1fr);
+  margin-top: 1.25rem;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(110% 130% at 100% 0%, rgba(37, 211, 102, 0.10), transparent 60%),
+    var(--surface);
+}
+
+.support__icon {
+  width: 2.4rem;
+  height: 2.4rem;
+  display: grid;
+  place-items: center;
+  border-radius: 11px;
+  background: rgba(37, 211, 102, 0.14);
+  color: #4ddb85;
+}
+.support__icon svg { width: 1.3rem; height: 1.3rem; }
+
+.support h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+.support p  { color: var(--ink-dim); font-size: 0.94rem; }
+
+.support__cta {
+  grid-column: 2;
+  justify-self: start;
+  border-color: rgba(37, 211, 102, 0.4);
+  color: #4ddb85;
+  font-variant-numeric: tabular-nums;
+}
+.support__cta:hover { border-color: #4ddb85; color: #7aeaa6; background: rgba(37, 211, 102, 0.08); }
+.support__cta svg { width: 1.05em; height: 1.05em; }
+
+@media (max-width: 560px) {
+  .support { grid-template-columns: minmax(0, 1fr); }
+  .support__icon { display: none; }
+  .support__cta { grid-column: 1; justify-self: stretch; }
+}
+
 /* ------------------------------------------------------------- install --- */
 
 .steps {

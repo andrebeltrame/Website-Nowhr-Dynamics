@@ -35,6 +35,16 @@
     var metaDesc = $('meta[name="description"]');
     if (desc && metaDesc) metaDesc.setAttribute('content', desc);
 
+    // wa.me carries the opening message, so the link has to be rebuilt when
+    // the language changes.
+    var wa = (CFG.support || {}).whatsapp;
+    if (wa) {
+      $$('[data-whatsapp]').forEach(function (el) {
+        var text = el.getAttribute('data-wa-' + lang);
+        el.href = 'https://wa.me/' + wa + (text ? '?text=' + encodeURIComponent(text) : '');
+      });
+    }
+
     // Text that cannot hold two <span>s — <option> labels, placeholders.
     $$('[data-en]').forEach(function (el) {
       var text = el.getAttribute('data-' + lang);
@@ -246,6 +256,11 @@
 
     if (CFG.repo) {
       $$('[data-repo]').forEach(function (el) { el.href = CFG.repo; });
+    }
+
+    var display = (CFG.support || {}).display;
+    if (display) {
+      $$('[data-whatsapp-number]').forEach(function (el) { el.textContent = display; });
     }
   }
 

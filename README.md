@@ -110,10 +110,16 @@ body [lang="en"], body [lang="pt"] { display: none; }
 html[data-lang="pt"] body [lang="pt"] { display: revert; }
 ```
 
-O idioma inicial vem do `localStorage`, e na primeira visita do
-`navigator.language`. Um script curtinho no `<head>` decide isso antes da
-página pintar, para não piscar. O padrão no HTML é inglês, então a página lê
-certo mesmo sem JavaScript.
+**O padrão é português.** Quem já escolheu um idioma tem a escolha respeitada
+(`localStorage`); quem chega pela primeira vez recebe inglês só se o navegador
+pedir inglês, e português em qualquer outro caso. Um script curtinho no
+`<head>` decide isso antes da página pintar, para não piscar.
+
+O HTML nasce em português — `<html lang="pt-BR" data-lang="pt">`, `<title>` e
+`description` em português — então é isso que um buscador indexa e é isso que
+aparece se o JavaScript não rodar. Para inverter, troque nos três HTMLs o
+atributo do `<html>`, a linha do `navigator.language`, o `aria-pressed` dos
+dois botões e o `<title>`/`description`.
 
 Para textos que não aceitam dois `<span>` — `<option>` e `placeholder` — use
 `data-en` / `data-pt` e `data-ph-en` / `data-ph-pt`.

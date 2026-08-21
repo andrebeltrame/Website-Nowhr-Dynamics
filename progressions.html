@@ -1,21 +1,25 @@
 <!doctype html>
-<html lang="en" data-lang="en">
+<html lang="pt-BR" data-lang="pt">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Progressions — Nowhr Dynamics</title>
-<meta name="description" content="Progressions is a VST3 plugin that reads your MIDI clip, works out the harmony, and writes the parts that go with it. Beta download and full manual.">
+<meta name="description" content="O Progressions é um plugin VST3 que lê o seu clipe MIDI, descobre a harmonia e escreve as partes que combinam com ela. Download do beta e manual completo.">
 <meta name="theme-color" content="#1b1b1c">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://andrebeltrame.github.io/Website-Nowhr-Dynamics/progressions.html">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
 <meta property="og:title" content="Progressions — Nowhr Dynamics">
-<meta property="og:description" content="Drop a clip, get ideas that fit it. Pads, melodies, counter melodies, basslines, arps and plucks over your own harmony.">
-<meta property="og:image" content="assets/img/progressions-chords.jpg">
+<meta property="og:description" content="Solte um clipe, receba ideias que combinam com ele. Pads, melodias, contracantos, baixos, arpejos e plucks sobre a sua própria harmonia.">
+<meta property="og:image" content="https://andrebeltrame.github.io/Website-Nowhr-Dynamics/assets/img/progressions-chords.jpg">
 <script>
 (function () {
   var l;
   try { l = localStorage.getItem('nowhr:lang'); } catch (e) {}
-  if (l !== 'pt' && l !== 'en') l = /^pt/i.test(navigator.language || '') ? 'pt' : 'en';
+  if (l !== 'pt' && l !== 'en') l = /^en/i.test(navigator.language || '') ? 'en' : 'pt';
   document.documentElement.setAttribute('data-lang', l);
   document.documentElement.setAttribute('lang', l === 'pt' ? 'pt-BR' : 'en');
 })();
@@ -44,8 +48,8 @@
       <a href="#beta"><span lang="en">Download</span><span lang="pt">Download</span></a>
     </nav>
     <div class="lang-switch" role="group" aria-label="Language">
-      <button type="button" data-lang="en" aria-pressed="true">EN</button>
-      <button type="button" data-lang="pt" aria-pressed="false">PT</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      <button type="button" data-lang="pt" aria-pressed="true">PT</button>
     </div>
   </div>
 </header>

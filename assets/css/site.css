@@ -625,6 +625,16 @@ code, kbd {
   word-break: break-word;
 }
 
+/* A monospace face rarely carries ⇧ and ⌘, and a missing glyph in a keyboard
+   shortcut is worse than useless. Hand kbd to the fonts that do have them. */
+kbd {
+  font-family: ui-sans-serif, -apple-system, "Segoe UI Symbol", "Apple Symbols",
+               "Noto Sans Symbols 2", system-ui, sans-serif;
+  font-size: 0.9em;
+  white-space: nowrap;
+  color: var(--ink);
+}
+
 pre {
   margin: 1rem 0 0;
   padding: 1rem 1.1rem;

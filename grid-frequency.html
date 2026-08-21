@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
-<link rel="stylesheet" href="assets/css/site.css?v=2">
+<link rel="stylesheet" href="assets/css/site.css?v=3">
 </head>
 
 <body class="accent-rose"
@@ -252,10 +252,12 @@
             <h2><span lang="en">You're in</span><span lang="pt">Pronto</span></h2>
           </div>
           <p class="gate__sub">
-            <span lang="en">Grid Frequency <span data-version>1.0.0 beta</span>. Grab the build for your system,
-              then follow the three steps below.</span>
-            <span lang="pt">Grid Frequency <span data-version>1.0.0 beta</span>. Pegue a versão do seu sistema e
-              siga os três passos abaixo.</span>
+            <span lang="en">Grid Frequency <span data-version>1.0.0 beta</span>. Grab the build for your system.
+              There is no installer: the plugin is a <code>.vst3</code> bundle that goes into your system's
+              <strong>VST3 folder</strong>, and the steps below say exactly where that is.</span>
+            <span lang="pt">Grid Frequency <span data-version>1.0.0 beta</span>. Pegue a versão do seu sistema. Não tem
+              instalador: o plugin é um bundle <code>.vst3</code> que vai na <strong>pasta VST3</strong> do seu
+              sistema, e os passos abaixo dizem exatamente onde ela fica.</span>
           </p>
 
           <div class="dl-grid">
@@ -277,22 +279,30 @@
           <div class="tabpanel" id="inst-mac" role="tabpanel">
             <ol class="steps">
               <li>
-                <span lang="en">Unzip the download. You get <strong>Grid Frequency.vst3</strong>.</span>
-                <span lang="pt">Descompacte o download. Você recebe o <strong>Grid Frequency.vst3</strong>.</span>
+                <span lang="en">Unzip the download. You get <strong>Grid Frequency.vst3</strong> — that bundle is the plugin,
+                  there is no installer to run.</span>
+                <span lang="pt">Descompacte o download. Você recebe o <strong>Grid Frequency.vst3</strong> — esse bundle é o
+                  plugin, não tem instalador para rodar.</span>
               </li>
               <li>
-                <span lang="en">Copy it into <code>~/Library/Audio/Plug-Ins/VST3/Nowhr Dynamics/</code>. Create the
-                  <code>Nowhr Dynamics</code> folder if it is not there — the DAW scans the VST3 folder
-                  recursively, so the subfolder only keeps things tidy.</span>
-                <span lang="pt">Copie para <code>~/Library/Audio/Plug-Ins/VST3/Nowhr Dynamics/</code>. Crie a pasta
-                  <code>Nowhr Dynamics</code> se ela não existir — o DAW varre a pasta VST3 recursivamente, então
-                  a subpasta só serve para organizar.</span>
+                <span lang="en">Open the VST3 folder: <code>~/Library/Audio/Plug-Ins/VST3/</code>.
+                  <strong>Finder hides the Library folder</strong>, so you will not find it by clicking around —
+                  use <kbd>⇧⌘G</kbd>, the <em>Go → Go to Folder</em> menu item, then paste that path and press
+                  Enter.</span>
+                <span lang="pt">Abra a pasta VST3: <code>~/Library/Audio/Plug-Ins/VST3/</code>.
+                  <strong>O Finder esconde a pasta Library</strong> (ela aparece como "Biblioteca"), então você não
+                  chega nela clicando — use <kbd>⇧⌘G</kbd>, que é o menu <em>Ir → Ir para a pasta</em>, cole esse
+                  caminho e dê Enter.</span>
               </li>
               <li>
-                <span lang="en">Rescan your plugins in the DAW. Grid Frequency shows up as an
-                  <strong>audio effect</strong>.</span>
-                <span lang="pt">Mande o DAW reescanear os plugins. O Grid Frequency aparece como
-                  <strong>efeito de áudio</strong>.</span>
+                <span lang="en">Drop the <code>.vst3</code> in there. A <code>Nowhr Dynamics</code> subfolder keeps
+                  things tidy and works just as well — the DAW scans the VST3 folder recursively.</span>
+                <span lang="pt">Solte o <code>.vst3</code> lá dentro. Uma subpasta <code>Nowhr Dynamics</code>
+                  organiza e funciona igual — o DAW varre a pasta VST3 recursivamente.</span>
+              </li>
+              <li>
+                <span lang="en">Rescan your plugins in the DAW. It shows up as an <strong>audio effect</strong>.</span>
+                <span lang="pt">Mande o DAW reescanear os plugins. Ele aparece como <strong>efeito de áudio</strong>.</span>
               </li>
             </ol>
             <div class="callout">
@@ -307,27 +317,34 @@
           <div class="tabpanel" id="inst-win" role="tabpanel" hidden>
             <ol class="steps">
               <li>
-                <span lang="en">Unzip the download. You get <strong>Grid Frequency.vst3</strong>.</span>
-                <span lang="pt">Descompacte o download. Você recebe o <strong>Grid Frequency.vst3</strong>.</span>
+                <span lang="en">Unzip the download. You get <strong>Grid Frequency.vst3</strong> — that folder is the plugin,
+                  there is no installer to run.</span>
+                <span lang="pt">Descompacte o download. Você recebe o <strong>Grid Frequency.vst3</strong> — essa pasta é o
+                  plugin, não tem instalador para rodar.</span>
               </li>
               <li>
-                <span lang="en">Copy it into <code>C:\Program Files\Common Files\VST3\Nowhr Dynamics\</code>.
-                  Create the <code>Nowhr Dynamics</code> folder if it is not there.</span>
-                <span lang="pt">Copie para <code>C:\Program Files\Common Files\VST3\Nowhr Dynamics\</code>. Crie a
-                  pasta <code>Nowhr Dynamics</code> se ela não existir.</span>
+                <span lang="en">Open the VST3 folder: <code>C:\Program Files\Common Files\VST3\</code>. It is not
+                  hidden — paste that path into the address bar of Explorer and press Enter.</span>
+                <span lang="pt">Abra a pasta VST3: <code>C:\Program Files\Common Files\VST3\</code>. Ela não é
+                  oculta — cole esse caminho na barra de endereço do Explorer e dê Enter.</span>
               </li>
               <li>
-                <span lang="en">Rescan your plugins in the DAW. Grid Frequency shows up as an
-                  <strong>audio effect</strong>.</span>
-                <span lang="pt">Mande o DAW reescanear os plugins. O Grid Frequency aparece como
-                  <strong>efeito de áudio</strong>.</span>
+                <span lang="en">Drop the <code>.vst3</code> in there. Windows will ask for administrator rights; a
+                  <code>Nowhr Dynamics</code> subfolder keeps things tidy and works just as well.</span>
+                <span lang="pt">Solte o <code>.vst3</code> lá dentro. O Windows vai pedir permissão de
+                  administrador; uma subpasta <code>Nowhr Dynamics</code> organiza e funciona igual.</span>
+              </li>
+              <li>
+                <span lang="en">Rescan your plugins in the DAW. It shows up as an <strong>audio effect</strong>.</span>
+                <span lang="pt">Mande o DAW reescanear os plugins. Ele aparece como <strong>efeito de áudio</strong>.</span>
               </li>
             </ol>
             <div class="callout">
-              <span lang="en">Copying into <code>Program Files</code> asks for administrator rights. If you would
-                rather not give them, any folder your DAW is set to scan works just as well.</span>
-              <span lang="pt">Copiar para <code>Program Files</code> pede permissão de administrador. Se preferir
-                não dar, qualquer pasta que o seu DAW esteja configurado para varrer serve igual.</span>
+              <span lang="en">That path is the standard VST3 location every DAW scans by default. If you would rather
+                not give administrator rights, any folder your DAW is set to scan works too.</span>
+              <span lang="pt">Esse caminho é o lugar padrão de VST3 que todo DAW varre por conta própria. Se preferir
+                não dar permissão de administrador, qualquer pasta que o seu DAW esteja configurado para varrer
+                serve igual.</span>
             </div>
           </div>
         </div>
@@ -759,7 +776,7 @@
   </div>
 </footer>
 
-<script src="assets/js/config.js?v=2"></script>
-<script src="assets/js/site.js?v=2"></script>
+<script src="assets/js/config.js?v=3"></script>
+<script src="assets/js/site.js?v=3"></script>
 </body>
 </html>

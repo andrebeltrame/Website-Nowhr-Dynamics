@@ -74,14 +74,27 @@ GridFrequency-macOS.zip     GridFrequency-Windows.zip
 
 Se você preferir outros nomes, ajuste as URLs no `config.js`.
 
-## Publicando no GitHub Pages
+> Assets de release só são baixáveis por qualquer pessoa enquanto o repositório
+> for **público**. Se um dia ele voltar a ser privado, esses links passam a
+> pedir login e os downloads quebram — nesse caso, hospede os `.zip` em outro
+> lugar e troque as URLs aqui.
 
-Em *Settings → Pages*, escolha **Deploy from a branch**, branch `main`, pasta
-`/ (root)`. O `.nojekyll` já está no repositório para o Jekyll não tocar em
-nada. O site fica em `https://andrebeltrame.github.io/Website-Nowhr-Dynamics/`.
+## Publicação
 
-Para domínio próprio, adicione um arquivo `CNAME` na raiz com o domínio e
-aponte o DNS para o GitHub Pages.
+O site está no ar em
+<https://andrebeltrame.github.io/Website-Nowhr-Dynamics/>, servido pelo GitHub
+Pages a partir da branch `main`, pasta `/ (root)`. **Todo push para a `main`
+republica o site** — leva um ou dois minutos.
+
+O `.nojekyll` está aí para o Jekyll não tocar em nada. O repositório é público
+porque o Pages não roda em repositório privado no plano gratuito.
+
+Para domínio próprio: adicione um arquivo `CNAME` na raiz com o domínio (uma
+linha, sem `http://`) e aponte o DNS para o GitHub Pages.
+
+Se um dia o site mudar de casa, ele vai inteiro: são arquivos estáticos com
+caminhos relativos, então basta copiar a pasta para qualquer servidor, Netlify,
+Vercel ou FTP. Nada aqui depende do GitHub além dos links de download.
 
 ## Idiomas
 

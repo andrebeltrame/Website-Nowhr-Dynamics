@@ -31,7 +31,18 @@ window.NOWHR = {
       name:   'entry.57955336',
       email:  'entry.1449390413',
       daw:    'entry.589139950',
-      plugin: 'entry.19681736'
+
+      // ⚠ TURN THIS BACK ON once the "plugin" question in the Google Form is a
+      //   SHORT ANSWER question. Right now it is a multiple-choice question
+      //   whose only option is "Opção 1", and a Google Form rejects the ENTIRE
+      //   submission when one answer does not fit its question — so sending
+      //   this field would mean losing every contact, not just this column.
+      //
+      //   Fix: open the form editor → click the "plugin" question → change the
+      //   type from "Múltipla escolha" to "Resposta curta". Then swap the two
+      //   lines below.
+      plugin: ''
+      // plugin: 'entry.19681736'
     }
   },
 

@@ -45,6 +45,14 @@ form: {
 Enquanto `action` estiver vazio o site continua funcionando — o formulário
 libera os downloads normalmente, só não grava nada, e avisa no console.
 
+Um `entry` vazio (`plugin: ''`) quer dizer "não mande este campo". Isso existe
+por um motivo específico: **o Google Forms recusa o envio inteiro quando uma
+resposta não cabe na pergunta.** Se a pergunta `plugin` for de múltipla escolha
+e o site mandar `Progressions`, a resposta volta 400 com *"A pergunta mudou"* e
+você perde o contato todo, não só aquela coluna. Por isso o campo `plugin` está
+desligado até a pergunta virar **Resposta curta** no editor do formulário —
+depois é só trocar as duas linhas comentadas no `config.js`.
+
 > O Google Forms não manda cabeçalhos CORS, então o navegador não consegue ler a
 > resposta do envio. Na prática: o site sabe que a requisição saiu, não que a
 > linha foi gravada. É o preço de postar direto no Forms sem backend. Confira a

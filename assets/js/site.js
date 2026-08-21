@@ -151,9 +151,15 @@
         submit.dataset.busy = '1';
       }
 
+      // An empty entry id means "do not send this one" — see config.js. A
+      // Google Form refuses the WHOLE submission when any single answer does
+      // not fit its question, so a field that cannot be filled in correctly
+      // has to be left out rather than sent wrong.
       var body = new FormData();
       Object.keys(cfg.fields || {}).forEach(function (key) {
-        if (payload[key] !== undefined) body.append(cfg.fields[key], payload[key]);
+        if (cfg.fields[key] && payload[key] !== undefined) {
+          body.append(cfg.fields[key], payload[key]);
+        }
       });
 
       // Google Forms does not send CORS headers, so the response is opaque:

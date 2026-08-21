@@ -26,12 +26,12 @@ window.NOWHR = {
    *  does not store anything, and it logs a warning to the console.
    */
   form: {
-    action: '',                 // e.g. 'https://docs.google.com/forms/d/e/1FAIpQL…/formResponse'
+    action: 'https://docs.google.com/forms/d/e/1FAIpQLSc0_uIQ9Jjgv6R5qkhdBDBy8FRl2jNwXSXxCM_0TbIymzSGJw/formResponse',
     fields: {
-      name:   'entry.000000001',
-      email:  'entry.000000002',
-      daw:    'entry.000000003',
-      plugin: 'entry.000000004'
+      name:   'entry.57955336',
+      email:  'entry.1449390413',
+      daw:    'entry.589139950',
+      plugin: 'entry.19681736'
     }
   },
 

@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
-<link rel="stylesheet" href="assets/css/site.css?v=5">
+<link rel="stylesheet" href="assets/css/site.css?v=6">
 </head>
 
 <body
@@ -62,7 +62,7 @@
       <div class="hero__meta">
         <span class="badge badge--beta"><span lang="en">Open beta</span><span lang="pt">Beta aberto</span></span>
         <span class="badge badge--ver"><span data-version>1.0.0 beta</span></span>
-        <span class="badge badge--ver">VST3 · macOS</span>
+        <span class="badge badge--ver">VST3</span>
       </div>
 
       <h1>Progressions</h1>
@@ -282,17 +282,13 @@
             <h2><span lang="en">You're in</span><span lang="pt">Pronto</span></h2>
           </div>
           <p class="gate__sub">
-            <span lang="en">Progressions <span data-version>1.0.0 beta</span>, <strong>macOS only</strong> for
-              now. There is no installer: the plugin is a <code>.vst3</code> bundle that goes into your
-              <strong>VST3 folder</strong>, and the steps below say exactly where that is.</span>
-            <span lang="pt">Progressions <span data-version>1.0.0 beta</span>, <strong>só macOS</strong> por
-              enquanto. Não tem instalador: o plugin é um bundle <code>.vst3</code> que vai na
-              <strong>pasta VST3</strong>, e os passos abaixo dizem exatamente onde ela fica.</span>
+            <span lang="en">Progressions <span data-version>1.0.0 beta</span>. There is no installer: the plugin
+              is a <code>.vst3</code> bundle that goes into your <strong>VST3 folder</strong>, and the steps below
+              say exactly where that folder is on each system.</span>
+            <span lang="pt">Progressions <span data-version>1.0.0 beta</span>. Não tem instalador: o plugin é um
+              bundle <code>.vst3</code> que vai na <strong>pasta VST3</strong>, e os passos abaixo dizem exatamente
+              onde ela fica em cada sistema.</span>
           </p>
-          <div class="callout">
-            <span lang="en"><strong>This build is Apple Silicon only.</strong> It will not load on an Intel Mac.</span>
-            <span lang="pt"><strong>Esta versão é só para Apple Silicon.</strong> Ela não carrega num Mac Intel.</span>
-          </div>
 
           <div class="dl-grid">
             <a class="dl-tile" data-dl="mac" href="#" download>
@@ -302,7 +298,12 @@
           </div>
 
 
-          <div class="tabpanel" id="inst-mac">
+          <div class="tabs" role="tablist">
+            <button type="button" role="tab" data-os="mac" aria-controls="inst-mac" aria-selected="true">macOS</button>
+            <button type="button" role="tab" data-os="win" aria-controls="inst-win" aria-selected="false">Windows</button>
+          </div>
+
+          <div class="tabpanel" id="inst-mac" role="tabpanel">
             <ol class="steps">
               <li>
                 <span lang="en">Unzip the download. You get a <code>Nowhr Dynamics</code> folder with
@@ -335,6 +336,38 @@
                   <strong>Nowhr Dynamics</strong>, como <strong>instrumento</strong> — não como efeito.</span>
               </li>
             </ol>
+          </div>
+          <div class="tabpanel" id="inst-win" role="tabpanel" hidden>
+            <ol class="steps">
+              <li>
+                <span lang="en">Unzip the download.</span>
+                <span lang="pt">Descompacte o download.</span>
+              </li>
+              <li>
+                <span lang="en">Open the VST3 folder: <code>C:\Program Files\Common Files\VST3\</code>. It is not
+                  hidden — paste that path into the address bar of Explorer and press Enter. Every DAW scans this
+                  folder by default, so nothing has to be configured.</span>
+                <span lang="pt">Abra a pasta VST3: <code>C:\Program Files\Common Files\VST3\</code>. Ela não é
+                  oculta — cole esse caminho na barra de endereço do Explorer e dê Enter. Todo DAW varre essa pasta
+                  por conta própria, então não há nada para configurar.</span>
+              </li>
+              <li>
+                <span lang="en">Drop <code>Progressions.vst3</code> in there. Windows asks for administrator rights; if you would rather not give them,
+                  any folder your DAW is set to scan works too.</span>
+                <span lang="pt">Solte o <code>Progressions.vst3</code> lá dentro. O Windows pede permissão de administrador; se preferir não dar, qualquer
+                  pasta que o seu DAW esteja configurado para varrer serve igual.</span>
+              </li>
+              <li>
+                <span lang="en">Rescan your plugins in the DAW. It shows up under the manufacturer <strong>Nowhr Dynamics</strong>, as an <strong>instrument</strong> — not an effect.</span>
+                <span lang="pt">Mande o DAW reescanear os plugins. Ele aparece sob o fabricante <strong>Nowhr Dynamics</strong>, como <strong>instrumento</strong> — não como efeito.</span>
+              </li>
+            </ol>
+            <p class="form-note">
+              <span lang="en">The download above is the macOS build — a Windows build is not out yet. These are the
+                steps for when it is.</span>
+              <span lang="pt">O download acima é a versão macOS — a versão Windows ainda não saiu. Estes são os
+                passos para quando ela sair.</span>
+            </p>
           </div>
 
         </div>
@@ -994,7 +1027,7 @@ Cmaj7/G                          <span lang="en">slash inversions</span><span la
   </div>
 </footer>
 
-<script src="assets/js/config.js?v=5"></script>
-<script src="assets/js/site.js?v=5"></script>
+<script src="assets/js/config.js?v=6"></script>
+<script src="assets/js/site.js?v=6"></script>
 </body>
 </html>

@@ -22,9 +22,9 @@ Tudo está em [`assets/js/config.js`](assets/js/config.js). Duas coisas:
 
 ### 1. O formulário (Google Forms)
 
-1. Crie um Google Form com quatro perguntas de resposta curta, **nesta ordem**:
-   Nome · E-mail · DAW · Plugin. Em *Respostas → Vincular ao Sheets* as
-   respostas caem numa planilha.
+1. Crie um Google Form com cinco perguntas de **resposta curta**:
+   Nome · WhatsApp · E-mail · DAW · Plugin. Em *Respostas → Vincular ao Sheets*
+   as respostas caem numa planilha.
 2. Abra o formulário publicado, botão direito → *Ver código-fonte da página*, e
    procure por `entry.` — vai aparecer um `entry.NNNNNNNNN` por pergunta.
 3. Preencha `form.action` e `form.fields` no `config.js`. O `action` é a URL do
@@ -34,10 +34,11 @@ Tudo está em [`assets/js/config.js`](assets/js/config.js). Duas coisas:
 form: {
   action: 'https://docs.google.com/forms/d/e/1FAIpQL.../formResponse',
   fields: {
-    name:   'entry.111111111',
-    email:  'entry.222222222',
-    daw:    'entry.333333333',
-    plugin: 'entry.444444444'
+    name:     'entry.111111111',
+    whatsapp: 'entry.222222222',
+    email:    'entry.333333333',
+    daw:      'entry.444444444',
+    plugin:   'entry.555555555'
   }
 }
 ```
@@ -45,13 +46,12 @@ form: {
 Enquanto `action` estiver vazio o site continua funcionando — o formulário
 libera os downloads normalmente, só não grava nada, e avisa no console.
 
-Um `entry` vazio (`plugin: ''`) quer dizer "não mande este campo". Isso existe
-por um motivo específico: **o Google Forms recusa o envio inteiro quando uma
-resposta não cabe na pergunta.** Se a pergunta `plugin` for de múltipla escolha
-e o site mandar `Progressions`, a resposta volta 400 com *"A pergunta mudou"* e
-você perde o contato todo, não só aquela coluna. Por isso o campo `plugin` está
-desligado até a pergunta virar **Resposta curta** no editor do formulário —
-depois é só trocar as duas linhas comentadas no `config.js`.
+**Todas precisam ser resposta curta.** O Google Forms recusa o envio inteiro
+quando uma resposta não cabe na pergunta: se `plugin` for múltipla escolha e o
+site mandar `Progressions`, volta 400 com *"A pergunta mudou"* e você perde o
+contato todo, não só aquela coluna. Um `entry` vazio no `config.js` quer dizer
+"não mande este campo" — é o jeito de desligar um campo problemático sem perder
+os outros.
 
 > O Google Forms não manda cabeçalhos CORS, então o navegador não consegue ler a
 > resposta do envio. Na prática: o site sabe que a requisição saiu, não que a

@@ -45,6 +45,15 @@
       });
     }
 
+    // Screenshots of a localised interface. The markup carries the default
+    // language's file, so nothing is fetched twice unless the visitor switches.
+    $$('[data-img-en]').forEach(function (el) {
+      var src = el.getAttribute('data-img-' + lang);
+      if (src && el.getAttribute('src') !== src) el.setAttribute('src', src);
+      var alt = el.getAttribute('data-alt-' + lang);
+      if (alt) el.setAttribute('alt', alt);
+    });
+
     // Text that cannot hold two <span>s — <option> labels, placeholders.
     $$('[data-en]').forEach(function (el) {
       var text = el.getAttribute('data-' + lang);

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Nowhr Dynamics — plugins para produção musical e mixagem</title>
-<meta name="description" content="A Nowhr Dynamics faz plugins VST3 para produção musical e mixagem. O Progressions escreve as partes que combinam com a sua harmonia; o Grid Frequency mostra onde as suas pistas se atropelam.">
+<meta name="description" content="A Nowhr Dynamics faz plugins VST3 para produção musical e mixagem. O Progressions escreve as partes que combinam com a sua harmonia; o Smart Review diz o que corrigir na mixagem.">
 <meta name="theme-color" content="#1b1b1c">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
@@ -27,14 +27,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
-<link rel="stylesheet" href="assets/css/site.css?v=16">
+<link rel="stylesheet" href="assets/css/site.css?v=17">
 </head>
 
 <body
   data-title-en="Nowhr Dynamics — plugins for music production and mixing"
   data-title-pt="Nowhr Dynamics — plugins para produção musical e mixagem"
-  data-desc-en="Nowhr Dynamics builds VST3 plugins for music production and mixing. Progressions writes the parts that fit your harmony; Grid Frequency shows you where your tracks collide."
-  data-desc-pt="A Nowhr Dynamics faz plugins VST3 para produção musical e mixagem. O Progressions escreve as partes que combinam com a sua harmonia; o Grid Frequency mostra onde as suas pistas se atropelam.">
+  data-desc-en="Nowhr Dynamics builds VST3 plugins for music production and mixing. Progressions writes the parts that fit your harmony; Smart Review tells you what to fix in the mix."
+  data-desc-pt="A Nowhr Dynamics faz plugins VST3 para produção musical e mixagem. O Progressions escreve as partes que combinam com a sua harmonia; o Smart Review diz o que corrigir na mixagem.">
 
 <header class="site-header">
   <div class="wrap site-header__inner">
@@ -44,7 +44,7 @@
     <nav class="site-nav">
       <a href="#plugins"><span lang="en">Plugins</span><span lang="pt">Plugins</span></a>
       <a href="progressions.html">Progressions</a>
-      <a href="grid-frequency.html">Grid Frequency</a>
+      <a href="smart-review.html">Smart Review</a>
     </nav>
     <div class="lang-switch" role="group" aria-label="Language">
       <button type="button" data-lang="en" aria-pressed="false">EN</button>
@@ -111,14 +111,14 @@
       <div class="section-head">
         <p class="section-label"><span lang="en">The plugins</span><span lang="pt">Os plugins</span></p>
         <h2>
-          <span lang="en">Two tools, one workflow</span>
-          <span lang="pt">Duas ferramentas, um fluxo</span>
+          <span lang="en">One writes the parts. The other reviews the mix.</span>
+          <span lang="pt">Um escreve as partes. O outro revisa a mixagem.</span>
         </h2>
         <p>
-          <span lang="en">One writes the material. The other tells you what to do with it once there are
-            eight tracks stacked on top of each other.</span>
-          <span lang="pt">Um escreve o material. O outro diz o que fazer com ele quando já são oito pistas
-            empilhadas uma em cima da outra.</span>
+          <span lang="en">Two stages of the same track, and the two places it usually stalls: finding material
+            that fits the harmony, and finding out what is wrong once eight channels are playing at once.</span>
+          <span lang="pt">Duas etapas da mesma música, e os dois lugares onde ela costuma travar: achar material
+            que combine com a harmonia, e descobrir o que está errado quando são oito canais tocando juntos.</span>
         </p>
       </div>
 
@@ -170,50 +170,50 @@
         </div>
       </article>
 
-      <!-- Grid Frequency -->
+      <!-- Smart Review -->
       <article class="plugin-card plugin-card--flip accent-rose">
         <div class="plugin-card__body">
           <p class="plugin-card__kicker">
-            <span lang="en">Multi-track analyser · VST3</span>
-            <span lang="pt">Analisador multipista · VST3</span>
+            <span lang="en">Technical review of the mix · VST3</span>
+            <span lang="pt">Revisão técnica da mixagem · VST3</span>
           </p>
-          <h3>Grid Frequency</h3>
+          <h3>Smart Review</h3>
           <p>
-            <span lang="en">One instance on each track, one on the master. Grid Frequency draws every track's
-              spectrum on the same graph, names and colours them, and marks the bands where two of them are
-              fighting over the same range — so you stop guessing which EQ move is the one that matters.</span>
-            <span lang="pt">Uma instância em cada pista, uma no master. O Grid Frequency desenha o espectro de
-              todas elas no mesmo gráfico, com nome e cor, e marca as faixas onde duas estão brigando pela mesma
-              região — para você parar de adivinhar qual movimento de EQ é o que importa.</span>
+            <span lang="en">A Console on every channel, a Master on the bus. It measures the whole project at
+              once and hands back a list of what to fix — written in sentences, in the order the problems
+              appeared, each with the moment in the music where it showed up.</span>
+            <span lang="pt">Um Console em cada canal, um Master no barramento. Ele mede o projeto inteiro de uma
+              vez e devolve uma lista do que corrigir — escrita em frases, na ordem em que os problemas
+              apareceram, cada uma com o momento da música em que surgiu.</span>
           </p>
           <ul>
             <li>
-              <span lang="en">Every instance talks to the others: one master view, all tracks overlaid.</span>
-              <span lang="pt">As instâncias conversam entre si: uma visão master, todas as pistas sobrepostas.</span>
+              <span lang="en">Findings in plain sentences, marked <code>REVISAR</code> or <code>CORRIGIR</code>.</span>
+              <span lang="pt">Achados em frases, marcados como <code>REVISAR</code> ou <code>CORRIGIR</code>.</span>
             </li>
             <li>
-              <span lang="en">Conflict detection names the pair and the band — <code>BASS × KICK, 90–107 Hz</code>.</span>
-              <span lang="pt">A detecção de conflito diz o par e a faixa — <code>BASS × KICK, 90–107 Hz</code>.</span>
+              <span lang="en">Conflict detection reads left and right, so panned-apart tracks stop being flagged.</span>
+              <span lang="pt">A detecção de conflito lê L e R, então faixas em lados opostos param de ser acusadas.</span>
             </li>
             <li>
-              <span lang="en">Highlight one curve, hide the rest, or freeze the whole picture to study it.</span>
-              <span lang="pt">Destaque uma curva, esconda as outras, ou congele o quadro inteiro para estudar.</span>
+              <span lang="en">Loudness to ITU-R BS.1770, true peak, and the headroom left on every track.</span>
+              <span lang="pt">Loudness pela ITU-R BS.1770, pico real, e a folga que sobra em cada faixa.</span>
             </li>
             <li>
-              <span lang="en">Log or linear scale, tilt, speed, floor, ceiling and range, all on hand.</span>
-              <span lang="pt">Escala log ou linear, inclinação, velocidade, piso, topo e alcance, tudo à mão.</span>
+              <span lang="en">Five readings of the same mix: diagnosis, EQ, stereo, levels and perspective.</span>
+              <span lang="pt">Cinco leituras da mesma mixagem: diagnóstico, EQ, stereo, níveis e perspectiva.</span>
             </li>
           </ul>
           <div class="btn-row">
-            <a class="btn btn--rose" href="grid-frequency.html">
+            <a class="btn btn--rose" href="smart-review.html">
               <span lang="en">Manual &amp; download</span><span lang="pt">Manual e download</span>
             </a>
           </div>
         </div>
         <div class="plugin-card__media">
           <div class="shot">
-            <img src="assets/img/grid-conflict.jpg" width="1800" height="1090" loading="lazy"
-                 alt="Grid Frequency in master view, with a BASS × KICK conflict marked at 90–107 Hz.">
+            <img src="assets/img/sr-diagnostico.jpg" width="1800" height="1100" loading="lazy"
+                 alt="Aba Diagnóstico do Smart Review, listando o que corrigir em frases.">
           </div>
         </div>
       </article>
@@ -257,8 +257,8 @@
       <div class="section-head">
         <p class="section-label"><span lang="en">How they behave</span><span lang="pt">Como eles se comportam</span></p>
         <h2>
-          <span lang="en">No account, no phone-home, no license server</span>
-          <span lang="pt">Sem conta, sem telemetria, sem servidor de licença</span>
+          <span lang="en">You install a file. Nothing else happens.</span>
+          <span lang="pt">Você instala um arquivo. Mais nada acontece.</span>
         </h2>
       </div>
 
@@ -331,14 +331,14 @@
     </div>
     <nav>
       <a href="progressions.html">Progressions</a>
-      <a href="grid-frequency.html">Grid Frequency</a>
+      <a href="smart-review.html">Smart Review</a>
       <a href="#" data-repo>GitHub</a>
       <a href="#" data-email data-email-text>email</a>
     </nav>
   </div>
 </footer>
 
-<script src="assets/js/config.js?v=16"></script>
-<script src="assets/js/site.js?v=16"></script>
+<script src="assets/js/config.js?v=17"></script>
+<script src="assets/js/site.js?v=17"></script>
 </body>
 </html>

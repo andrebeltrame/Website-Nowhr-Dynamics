@@ -66,11 +66,11 @@ window.NOWHR = {
         meta: '1,8 MB'
       }
     },
-    'grid-frequency': {
+    'smart-review': {
       version: '1.0.0 beta',
       mac: {
-        url:  'https://github.com/andrebeltrame/Website-Nowhr-Dynamics/releases/latest/download/GridFrequency-1.0.0-macOS.zip',
-        meta: '6,5 MB'
+        url:  'https://github.com/andrebeltrame/Website-Nowhr-Dynamics/releases/latest/download/SmartReview-macOS.zip',
+        meta: '6,9 MB'
       }
     }
   },

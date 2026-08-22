@@ -9,7 +9,7 @@ dependências, sem npm. Abrir `index.html` no navegador já funciona.
 ```
 index.html            landing
 progressions.html     Progressions — features, formulário, download, manual
-grid-frequency.html   Grid Frequency — idem
+smart-review.html     Smart Review — idem
 assets/css/site.css   todo o estilo
 assets/js/config.js   ← o único arquivo que você precisa editar
 assets/js/site.js     idioma, formulário, abas, índice do manual
@@ -68,9 +68,12 @@ nunca mudam.
 Nomes esperados:
 
 ```
-Progressions-macOS.zip      Progressions-Windows.zip
-GridFrequency-macOS.zip     GridFrequency-Windows.zip
+Progressions-macOS.zip      SmartReview-macOS.zip
 ```
+
+Só existe build macOS por enquanto. Quando houver Windows, acrescente uma
+entrada `win` no `config.js` e um segundo `<a class="dl-tile" data-dl="win">`
+em cada página de plugin — a aba de instalação do Windows já está lá.
 
 Se você preferir outros nomes, ajuste as URLs no `config.js`.
 

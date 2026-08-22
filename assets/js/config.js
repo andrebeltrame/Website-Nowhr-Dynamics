@@ -62,15 +62,15 @@ window.NOWHR = {
     progressions: {
       version: '1.0.0 beta',
       mac: {
-        url:  'https://github.com/andrebeltrame/Website-Nowhr-Dynamics/releases/latest/download/Progressions-1.0.0-macOS.zip',
+        url:  'https://github.com/andrebeltrame/Website-Nowhr-Dynamics/releases/latest/download/Progressions.zip',
         meta: '1,8 MB'
       }
     },
     'smart-review': {
       version: '1.0.0 beta',
       mac: {
-        url:  'https://github.com/andrebeltrame/Website-Nowhr-Dynamics/releases/latest/download/SmartReview-macOS.zip',
-        meta: '6,9 MB'
+        url:  'https://github.com/andrebeltrame/Website-Nowhr-Dynamics/releases/latest/download/SmartReview.zip',
+        meta: '6,8 MB'
       }
     }
   },

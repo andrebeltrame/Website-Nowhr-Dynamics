@@ -73,8 +73,9 @@ window.NOWHR = {
     'smart-review': {
       version: '1.0.0 beta',
       mac: {
-        url:  'https://github.com/andrebeltrame/Website-Nowhr-Dynamics/releases/latest/download/SmartReview.zip',
-        meta: '6,8 MB'
+        url:  'https://drive.google.com/drive/folders/1O1Y-se23vh-ezpf83ZYSJl7rmPTB9GVw',
+        external: true,
+        meta: '13,1 MB · macOS e Windows'
       }
     }
   },

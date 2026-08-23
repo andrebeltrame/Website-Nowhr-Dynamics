@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
-<link rel="stylesheet" href="assets/css/site.css?v=24">
+<link rel="stylesheet" href="assets/css/site.css?v=25">
 </head>
 
 <body class="accent-rose"
@@ -420,12 +420,14 @@
             <h2><span lang="en">You're in</span><span lang="pt">Pronto</span></h2>
           </div>
           <p class="gate__sub">
-            <span lang="en">Smart Review <span data-version>1.0.0 beta</span>. There is no installer: the plugins
-              are <code>.vst3</code> bundles that go into your <strong>VST3 folder</strong>, and the steps below
-              say exactly where that folder is on each system.</span>
-            <span lang="pt">Smart Review <span data-version>1.0.0 beta</span>. Não tem instalador: os plugins são
-              bundles <code>.vst3</code> que vão na <strong>pasta VST3</strong>, e os passos abaixo dizem
-              exatamente onde ela fica em cada sistema.</span>
+            <span lang="en">Smart Review <span data-version>1.0.0 beta</span>. Each <code>.vst3</code> carries
+              both binaries inside — macOS, universal for Intel and Apple Silicon, and Windows x64. The same file
+              works on either system, so there is no wrong version to pick. They go into your
+              <strong>VST3 folder</strong>, and the steps below say where that is.</span>
+            <span lang="pt">Smart Review <span data-version>1.0.0 beta</span>. Cada <code>.vst3</code> carrega os
+              dois binários dentro — o do macOS, universal para Intel e Apple Silicon, e o do Windows x64. É o
+              mesmo arquivo nos dois sistemas, então não tem versão errada para baixar. Eles vão na
+              <strong>pasta VST3</strong>, e os passos abaixo dizem onde ela fica.</span>
           </p>
           <div class="callout">
             <span lang="en"><strong>You are downloading two plugins:</strong> <code>Smart Review Console</code>
@@ -457,14 +459,14 @@
                   <strong>Smart Review Console.vst3</strong> e <strong>Smart Review Master.vst3</strong>.</span>
               </li>
               <li>
-                <span lang="en">Open the VST3 folder: <code>~/Library/Audio/Plug-Ins/VST3/</code>.
-                  <strong>Finder hides the Library folder</strong>, so you will not find it by clicking around —
-                  use <kbd>⇧⌘G</kbd>, the <em>Go → Go to Folder</em> menu item, then paste that path and press
-                  Enter.</span>
-                <span lang="pt">Abra a pasta VST3: <code>~/Library/Audio/Plug-Ins/VST3/</code>.
-                  <strong>O Finder esconde a pasta Library</strong> (ela aparece como "Biblioteca"), então você não
-                  chega nela clicando — use <kbd>⇧⌘G</kbd>, que é o menu <em>Ir → Ir para a pasta</em>, cole esse
-                  caminho e dê Enter.</span>
+                <span lang="en">Open <code>/Library/Audio/Plug-Ins/VST3/Nowhr Dynamics/</code>, creating the
+                  folder if it is not there. To install for your user only, use
+                  <code>~/Library/Audio/Plug-Ins/VST3/</code> instead — but <strong>Finder hides that
+                  Library</strong>, so reach it with <kbd>⇧⌘G</kbd>, the <em>Go → Go to Folder</em> menu item.</span>
+                <span lang="pt">Abra <code>/Library/Audio/Plug-Ins/VST3/Nowhr Dynamics/</code>, criando a pasta se
+                  ela não existir. Para instalar só para o seu usuário, use
+                  <code>~/Library/Audio/Plug-Ins/VST3/</code> — mas <strong>o Finder esconde essa Library</strong>,
+                  então chegue nela com <kbd>⇧⌘G</kbd>, o menu <em>Ir → Ir para a pasta</em>.</span>
               </li>
               <li>
                 <span lang="en">Drop both <code>.vst3</code> bundles in there.</span>
@@ -488,12 +490,12 @@
                 <span lang="pt">Descompacte o download. Você recebe <strong>dois</strong> bundles, Console e Master.</span>
               </li>
               <li>
-                <span lang="en">Open the VST3 folder: <code>C:\Program Files\Common Files\VST3\</code>. It is not
-                  hidden — paste that path into the address bar of Explorer and press Enter. Every DAW scans this
-                  folder by default.</span>
-                <span lang="pt">Abra a pasta VST3: <code>C:\Program Files\Common Files\VST3\</code>. Ela não é
-                  oculta — cole esse caminho na barra de endereço do Explorer e dê Enter. Todo DAW varre essa
-                  pasta por conta própria.</span>
+                <span lang="en">Open <code>C:\Program Files\Common Files\VST3\Nowhr Dynamics\</code>, creating
+                  the folder if it is not there. Paste the path into the Explorer address bar. If your DAW uses
+                  its own VST3 folder, use that one.</span>
+                <span lang="pt">Abra <code>C:\Program Files\Common Files\VST3\Nowhr Dynamics\</code>, criando a
+                  pasta se ela não existir. Cole o caminho na barra de endereço do Explorer. Se a sua DAW usa uma
+                  pasta VST3 própria, use a dela.</span>
               </li>
               <li>
                 <span lang="en">Drop both bundles in there. Windows asks for administrator rights; any folder your
@@ -508,6 +510,12 @@
                   master.</span>
               </li>
             </ol>
+            <p class="form-note">
+              <span lang="en">No Visual C++ Redistributable needed — the runtime ships inside the plug-in.
+                Windows 10 64-bit or newer.</span>
+              <span lang="pt">Não precisa instalar o Visual C++ Redistributable — o runtime vai dentro do plugin.
+                Windows 10 de 64 bits ou mais novo.</span>
+            </p>
           </div>
         </div>
       </div>
@@ -1023,7 +1031,7 @@
   </div>
 </footer>
 
-<script src="assets/js/config.js?v=24"></script>
-<script src="assets/js/site.js?v=24"></script>
+<script src="assets/js/config.js?v=25"></script>
+<script src="assets/js/site.js?v=25"></script>
 </body>
 </html>

@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
-<link rel="stylesheet" href="assets/css/site.css?v=23">
+<link rel="stylesheet" href="assets/css/site.css?v=24">
 </head>
 
 <body
@@ -289,12 +289,14 @@
             <h2><span lang="en">You're in</span><span lang="pt">Pronto</span></h2>
           </div>
           <p class="gate__sub">
-            <span lang="en">Progressions <span data-version>1.0.0 beta</span>. There is no installer: the plugin
-              is a <code>.vst3</code> bundle that goes into your <strong>VST3 folder</strong>, and the steps below
-              say exactly where that folder is on each system.</span>
-            <span lang="pt">Progressions <span data-version>1.0.0 beta</span>. Não tem instalador: o plugin é um
-              bundle <code>.vst3</code> que vai na <strong>pasta VST3</strong>, e os passos abaixo dizem exatamente
-              onde ela fica em cada sistema.</span>
+            <span lang="en">Progressions <span data-version>1.0.0 beta</span>. One plug-in for both systems: the
+              same <code>.vst3</code> bundle carries the macOS build — Intel and Apple Silicon — and the Windows
+              one. There is no installer; it goes into your <strong>VST3 folder</strong>, and the steps below say
+              exactly where that folder is on each system.</span>
+            <span lang="pt">Progressions <span data-version>1.0.0 beta</span>. Um plugin para os dois sistemas: o
+              mesmo bundle <code>.vst3</code> carrega a versão macOS — Intel e Apple Silicon — e a de Windows. Não
+              tem instalador; ele vai na <strong>pasta VST3</strong>, e os passos abaixo dizem exatamente onde ela
+              fica em cada sistema.</span>
           </p>
 
           <div class="dl-grid">
@@ -347,8 +349,14 @@
           <div class="tabpanel" id="inst-win" role="tabpanel" hidden>
             <ol class="steps">
               <li>
-                <span lang="en">Unzip the download.</span>
-                <span lang="pt">Descompacte o download.</span>
+                <span lang="en"><strong>Before extracting</strong>, right-click the <code>.zip</code>, choose
+                  Properties, tick <strong>Unblock</strong>, click OK — then extract. Windows marks anything
+                  downloaded, the mark passes to the extracted files, and a marked plug-in is refused without a
+                  word.</span>
+                <span lang="pt"><strong>Antes de extrair</strong>, clique com o botão direito no <code>.zip</code>,
+                  escolha Propriedades, marque <strong>Desbloquear</strong>, clique OK — e só então extraia. O
+                  Windows marca tudo que é baixado, a marca passa para os arquivos extraídos, e um plugin marcado
+                  é recusado sem dizer nada.</span>
               </li>
               <li>
                 <span lang="en">Open the VST3 folder: <code>C:\Program Files\Common Files\VST3\</code>. It is not
@@ -1051,7 +1059,7 @@ Cmaj7/G                          <span lang="en">slash inversions</span><span la
   </div>
 </footer>
 
-<script src="assets/js/config.js?v=23"></script>
-<script src="assets/js/site.js?v=23"></script>
+<script src="assets/js/config.js?v=24"></script>
+<script src="assets/js/site.js?v=24"></script>
 </body>
 </html>

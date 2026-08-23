@@ -62,8 +62,12 @@ window.NOWHR = {
     progressions: {
       version: '1.0.0 beta',
       mac: {
-        url:  'https://github.com/andrebeltrame/Website-Nowhr-Dynamics/releases/latest/download/Progressions.zip',
-        meta: '1,8 MB'
+        // Uma pasta do Drive, não um arquivo: o link sobrevive à troca do zip,
+        // que um link direto por id não faria. `external` faz o tile abrir em
+        // aba nova e largar o atributo `download`, que não vale entre origens.
+        url:  'https://drive.google.com/drive/folders/1O1Y-se23vh-ezpf83ZYSJl7rmPTB9GVw',
+        external: true,
+        meta: '6,5 MB · macOS e Windows'
       }
     },
     'smart-review': {

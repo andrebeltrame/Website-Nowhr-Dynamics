@@ -101,6 +101,13 @@
       var entry = data[os];
       if (!entry) return;
       tile.href = entry.url;
+      // Um destino fora do site não pode ser baixado pelo atributo `download`
+      // e não deve substituir a página onde a pessoa está lendo as instruções.
+      if (entry.external) {
+        tile.removeAttribute('download');
+        tile.target = '_blank';
+        tile.rel = 'noopener noreferrer';
+      }
       var meta = $('.dl-tile__meta', tile);
       if (meta) meta.textContent = entry.meta;
     });

@@ -69,14 +69,6 @@ window.NOWHR = {
         external: true,
         meta: '6,5 MB · macOS e Windows'
       }
-    },
-    'smart-review': {
-      version: '1.0.0 beta',
-      mac: {
-        url:  'https://drive.google.com/drive/folders/1O1Y-se23vh-ezpf83ZYSJl7rmPTB9GVw',
-        external: true,
-        meta: '13,1 MB · macOS e Windows'
-      }
     }
   },
 

@@ -9,7 +9,6 @@ dependências, sem npm. Abrir `index.html` no navegador já funciona.
 ```
 index.html            landing
 progressions.html     Progressions — features, formulário, download, manual
-smart-review.html     Smart Review — idem
 assets/css/site.css   todo o estilo
 assets/js/config.js   ← o único arquivo que você precisa editar
 assets/js/site.js     idioma, formulário, abas, índice do manual
@@ -58,29 +57,30 @@ os outros.
 > linha foi gravada. É o preço de postar direto no Forms sem backend. Confira a
 > planilha depois do primeiro envio de teste.
 
-### 2. Os downloads (GitHub Releases)
+### 2. Os downloads
 
-Suba os `.vst3` zipados como assets de uma *Release* deste repositório. Os links
-no `config.js` já usam a forma `releases/latest/download/<arquivo>`, então basta
-manter os nomes dos arquivos e publicar uma release nova a cada versão — as URLs
-nunca mudam.
+Hoje o download aponta para uma **pasta do Google Drive**, não para um arquivo:
 
-Nomes esperados:
-
-```
-Progressions-macOS.zip      SmartReview-macOS.zip
+```js
+url:  'https://drive.google.com/drive/folders/…',
+external: true,
+meta: '6,5 MB · macOS e Windows'
 ```
 
-Só existe build macOS por enquanto. Quando houver Windows, acrescente uma
-entrada `win` no `config.js` e um segundo `<a class="dl-tile" data-dl="win">`
-em cada página de plugin — a aba de instalação do Windows já está lá.
+A pasta, e não o id do arquivo, porque assim trocar o `.zip` lá não quebra o
+link — um id direto quebraria. O `external: true` faz o card abrir em aba nova e
+largar o atributo `download`, que não funciona entre origens.
 
-Se você preferir outros nomes, ajuste as URLs no `config.js`.
+Só o `meta` precisa de ajuste manual, quando o tamanho do arquivo mudar.
 
-> Assets de release só são baixáveis por qualquer pessoa enquanto o repositório
-> for **público**. Se um dia ele voltar a ser privado, esses links passam a
-> pedir login e os downloads quebram — nesse caso, hospede os `.zip` em outro
-> lugar e troque as URLs aqui.
+Se preferir voltar a servir da *Release* deste repositório, troque a `url` por
+`https://github.com/andrebeltrame/Website-Nowhr-Dynamics/releases/latest/download/Progressions.zip`
+e remova o `external`. Nesse caso, os assets só continuam baixáveis enquanto o
+repositório for público.
+
+O `.vst3` do Progressions carrega os dois binários dentro — macOS universal e
+Windows x64 — então é um arquivo só para os dois sistemas, e não existe uma
+entrada `win` separada a acrescentar.
 
 ## Publicação
 
@@ -120,7 +120,7 @@ pedir inglês, e português em qualquer outro caso. Um script curtinho no
 
 O HTML nasce em português — `<html lang="pt-BR" data-lang="pt">`, `<title>` e
 `description` em português — então é isso que um buscador indexa e é isso que
-aparece se o JavaScript não rodar. Para inverter, troque nos três HTMLs o
+aparece se o JavaScript não rodar. Para inverter, troque nos dois HTMLs o
 atributo do `<html>`, a linha do `navigator.language`, o `aria-pressed` dos
 dois botões e o `<title>`/`description`.
 
@@ -140,7 +140,7 @@ E abra <http://localhost:8787>.
 
 ## Editando
 
-- **Trocou CSS ou JS?** Suba o `?v=1` no fim dos `href`/`src` dos três HTMLs,
+- **Trocou CSS ou JS?** Suba o `?v=N` no fim dos `href`/`src` dos dois HTMLs,
   senão o navegador de quem já visitou continua com a versão velha.
 - **Prints novos?** Recorte a janela do plugin (sem o DAW em volta, quando der),
   redimensione para 1800px de largura e salve como JPEG qualidade 82 — os

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Nowhr Dynamics — plugins para produção musical e mixagem</title>
-<meta name="description" content="A Nowhr Dynamics faz plugins VST3 para produção musical e mixagem. O Progressions escreve as partes que combinam com a sua harmonia; o Smart Review diz o que corrigir na mixagem.">
+<meta name="description" content="A Nowhr Dynamics faz plugins VST3 para produção musical e mixagem. O Progressions lê a harmonia de um clipe MIDI e escreve as partes que combinam com ela.">
 <meta name="theme-color" content="#1b1b1c">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
@@ -13,7 +13,7 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta property="og:title" content="Nowhr Dynamics">
-<meta property="og:description" content="Plugins VST3 para produção musical e mixagem. Dois deles, os dois em beta aberto.">
+<meta property="og:description" content="Plugins VST3 para produção musical. Em beta aberto.">
 <meta property="og:image" content="https://andrebeltrame.github.io/Website-Nowhr-Dynamics/assets/img/progressions-chords.jpg">
 <script>
 (function () {
@@ -27,14 +27,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
-<link rel="stylesheet" href="assets/css/site.css?v=25">
+<link rel="stylesheet" href="assets/css/site.css?v=26">
 </head>
 
 <body
   data-title-en="Nowhr Dynamics — plugins for music production and mixing"
   data-title-pt="Nowhr Dynamics — plugins para produção musical e mixagem"
-  data-desc-en="Nowhr Dynamics builds VST3 plugins for music production and mixing. Progressions writes the parts that fit your harmony; Smart Review tells you what to fix in the mix."
-  data-desc-pt="A Nowhr Dynamics faz plugins VST3 para produção musical e mixagem. O Progressions escreve as partes que combinam com a sua harmonia; o Smart Review diz o que corrigir na mixagem.">
+  data-desc-en="Nowhr Dynamics builds VST3 plugins for music production and mixing. Progressions reads the harmony of a MIDI clip and writes the parts that fit it."
+  data-desc-pt="A Nowhr Dynamics faz plugins VST3 para produção musical e mixagem. O Progressions lê a harmonia de um clipe MIDI e escreve as partes que combinam com ela.">
 
 <header class="site-header">
   <div class="wrap site-header__inner">
@@ -44,7 +44,6 @@
     <nav class="site-nav">
       <a href="#plugins"><span lang="en">Plugins</span><span lang="pt">Plugins</span></a>
       <a href="progressions.html">Progressions</a>
-      <a href="smart-review.html">Smart Review</a>
     </nav>
     <div class="lang-switch" role="group" aria-label="Language">
       <button type="button" data-lang="en" aria-pressed="false">EN</button>
@@ -70,11 +69,10 @@
       <h1>Write your music. Then make it fit.</h1>
 
       <p class="hero__lede">
-        <span lang="en">Plugins for the two places a track usually stalls: finding the parts that fit
-          your harmony, and finding out which of them are fighting each other in the mix. Two of them,
-          both in open beta, both free while the beta runs.</span>
-        <span lang="pt">Plugins para os dois lugares onde uma música costuma travar: achar as partes que
-          combinam com a sua harmonia, e descobrir quais delas estão brigando entre si na mixagem. São dois, ambos em beta aberto e gratuitos enquanto o beta durar.</span>
+        <span lang="en">Plugins for the place a track usually stalls: finding the parts that fit the harmony
+          you already have. In open beta, and free while the beta runs.</span>
+        <span lang="pt">Plugins para o lugar onde uma música costuma travar: achar as partes que combinam com a
+          harmonia que você já tem. Em beta aberto, e gratuito enquanto o beta durar.</span>
       </p>
 
       <div class="btn-row">
@@ -110,14 +108,14 @@
       <div class="section-head">
         <p class="section-label"><span lang="en">The plugins</span><span lang="pt">Os plugins</span></p>
         <h2>
-          <span lang="en">Composition and mix review</span>
-          <span lang="pt">Composição e revisão de mixagem</span>
+          <span lang="en">Harmony in, parts out</span>
+          <span lang="pt">Entra harmonia, saem as partes</span>
         </h2>
         <p>
-          <span lang="en">Two stages of the same track, and the two places it usually stalls: finding material
-            that fits the harmony, and finding out what is wrong once eight channels are playing at once.</span>
-          <span lang="pt">Duas etapas da mesma música, e os dois lugares onde ela costuma travar: achar material
-            que combine com a harmonia, e descobrir o que está errado quando são oito canais tocando juntos.</span>
+          <span lang="en">A clip you drop, a progression you type, or a preset you pick — and the parts that go
+            over it, written to fit.</span>
+          <span lang="pt">Um clipe que você solta, uma progressão que você digita ou um preset que você escolhe —
+            e as partes que vão por cima, escritas para combinar.</span>
         </p>
       </div>
 
@@ -169,57 +167,6 @@
         </div>
       </article>
 
-      <!-- Smart Review -->
-      <article class="plugin-card plugin-card--flip accent-rose">
-        <div class="plugin-card__body">
-          <p class="plugin-card__kicker">
-            <span lang="en">Technical review of the mix · VST3</span>
-            <span lang="pt">Revisão técnica da mixagem · VST3</span>
-          </p>
-          <h3>Smart Review</h3>
-          <p>
-            <span lang="en">A Console on every channel, a Master on the bus. The pair measures the whole project at
-              once and hands back a list of what to fix — written in sentences, in the order the problems
-              appeared, each with the moment in the music where it showed up.</span>
-            <span lang="pt">Um Console em cada canal, um Master no barramento. O par mede o projeto inteiro de uma
-              vez e devolve uma lista do que corrigir — escrita em frases, na ordem em que os problemas
-              apareceram, cada uma com o momento da música em que surgiu.</span>
-          </p>
-          <ul>
-            <li>
-              <span lang="en">Findings in plain sentences, marked <code>REVISAR</code> or <code>CORRIGIR</code>.</span>
-              <span lang="pt">Achados em frases, marcados como <code>REVISAR</code> ou <code>CORRIGIR</code>.</span>
-            </li>
-            <li>
-              <span lang="en">Conflict detection reads left and right, so panned-apart tracks stop being flagged.</span>
-              <span lang="pt">A detecção de conflito lê L e R, então faixas em lados opostos param de ser acusadas.</span>
-            </li>
-            <li>
-              <span lang="en">Loudness to ITU-R BS.1770, true peak, and the headroom left on every track.</span>
-              <span lang="pt">Loudness pela ITU-R BS.1770, pico real, e a folga que sobra em cada faixa.</span>
-            </li>
-            <li>
-              <span lang="en">Five readings of the same mix: diagnosis, EQ, stereo, levels and perspective.</span>
-              <span lang="pt">Cinco leituras da mesma mixagem: diagnóstico, EQ, stereo, níveis e perspectiva.</span>
-            </li>
-          </ul>
-          <div class="btn-row">
-            <a class="btn btn--rose" href="smart-review.html">
-              <span lang="en">Manual &amp; download</span><span lang="pt">Manual e download</span>
-            </a>
-          </div>
-        </div>
-        <div class="plugin-card__media">
-          <div class="shot">
-            <img src="assets/img/sr-diagnostico.jpg" width="1800" height="1100" loading="lazy"
-                 data-img-pt="assets/img/sr-diagnostico.jpg"
-                 data-img-en="assets/img/sr-diagnostico-en.jpg"
-                 alt="Aba Diagnóstico do Smart Review, listando o que corrigir em frases."
-                 data-alt-pt="Aba Diagnóstico do Smart Review, listando o que corrigir em frases."
-                 data-alt-en="Smart Review on the Diagnosis tab, listing what to fix as sentences.">
-          </div>
-        </div>
-      </article>
     </div>
   </section>
 
@@ -236,16 +183,16 @@
             <span lang="pt">Suporte ao beta</span>
           </h3>
           <p>
-            <span lang="en">Both plugins are in beta, under active development. Fault reports and suggestions go
+            <span lang="en">Progressions is in beta, under active development. Fault reports and suggestions go
               straight to the developer over WhatsApp.</span>
-            <span lang="pt">Os dois plugins estão em versão beta, sob desenvolvimento ativo. Relatos de falha e
+            <span lang="pt">O Progressions está em versão beta, sob desenvolvimento ativo. Relatos de falha e
               sugestões vão direto para o desenvolvedor pelo WhatsApp.</span>
           </p>
         </div>
         <a class="btn btn--ghost support__cta" data-whatsapp href="https://wa.me/" target="_blank"
            rel="noopener noreferrer"
-           data-wa-pt="Olá! Vim pelo site da Nowhr Dynamics e queria falar sobre os plugins:"
-           data-wa-en="Hi! I came from the Nowhr Dynamics site and I would like to talk about the plugins:">
+           data-wa-pt="Olá! Vim pelo site da Nowhr Dynamics e queria falar sobre o Progressions:"
+           data-wa-en="Hi! I came from the Nowhr Dynamics site and I would like to talk about Progressions:">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
           <span data-whatsapp-number>WhatsApp</span>
         </a>
@@ -309,10 +256,10 @@
             <span lang="pt">Beta é beta mesmo</span>
           </h3>
           <p>
-            <span lang="en">Both plugins are usable today, and both are unfinished. Free for as long as the
-              beta runs, and what gets reported gets fixed.</span>
-            <span lang="pt">Os dois plugins já dão para usar, e os dois estão inacabados. Gratuitos enquanto o
-              beta durar, e o que for reportado é corrigido.</span>
+            <span lang="en">Progressions is usable today, and it is unfinished. Free for as long as the beta
+              runs, and what gets reported gets fixed.</span>
+            <span lang="pt">O Progressions já dá para usar, e está inacabado. Gratuito enquanto o beta durar, e o
+              que for reportado é corrigido.</span>
           </p>
         </div>
       </div>
@@ -328,20 +275,19 @@
         <img src="assets/img/logo.svg" alt="Nowhr Dynamics" width="104" height="41" style="opacity:.65">
       </a>
       <small>
-        <span lang="en">© <span data-year></span> Nowhr Dynamics. All plugins in open beta.</span>
-        <span lang="pt">© <span data-year></span> Nowhr Dynamics. Todos os plugins em beta aberto.</span>
+        <span lang="en">© <span data-year></span> Nowhr Dynamics. Progressions in open beta.</span>
+        <span lang="pt">© <span data-year></span> Nowhr Dynamics. Progressions em beta aberto.</span>
       </small>
     </div>
     <nav>
       <a href="progressions.html">Progressions</a>
-      <a href="smart-review.html">Smart Review</a>
       <a href="#" data-repo>GitHub</a>
       <a href="#" data-email data-email-text>email</a>
     </nav>
   </div>
 </footer>
 
-<script src="assets/js/config.js?v=25"></script>
-<script src="assets/js/site.js?v=25"></script>
+<script src="assets/js/config.js?v=26"></script>
+<script src="assets/js/site.js?v=26"></script>
 </body>
 </html>
